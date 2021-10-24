@@ -1,17 +1,23 @@
-import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import reportWebVitals from './reportWebVitals';
+import React from 'react'
+import ReactDOM from 'react-dom'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+import Poultry from './views/Poultry/Poultry';
 
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
+(window as any).renderPoultryPage = (containerId: string) => {
+  const targetDocument = document.getElementById(containerId)
+
+  if (targetDocument) {
+    ReactDOM.render(
+      <Poultry />,
+      targetDocument,
+    )
+  }
+};
+
+(window as any).unmountPoultryPage = (containerId: string) => {
+  const targetDocument = document.getElementById(containerId)
+
+  if (targetDocument) {
+    ReactDOM.unmountComponentAtNode(targetDocument)
+  }
+}
