@@ -1,5 +1,6 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { poultryFactory } from '@cig-platform/factories'
 
 import Poultry from './Poultry'
 
@@ -12,4 +13,15 @@ const Template: ComponentStory<typeof Poultry> = (args) => <Poultry {...args} />
 
 export const Example = Template.bind({})
 Example.args = {
+  poultry: poultryFactory({
+    videos: {
+      measurement: 'https://www.youtube.com/watch?v=Hh9vXojYq9A',
+      presentation: 'https://www.youtube.com/watch?v=Hh9vXojYq9A'
+    }
+  }),
+  images: Array(10).fill({
+    imageUrl: '1634766823222-c4f8a3c6-713d-45f0-a492-49643cf32ed6.jpeg',
+    id: '',
+    poultryId: ''
+  })
 }
