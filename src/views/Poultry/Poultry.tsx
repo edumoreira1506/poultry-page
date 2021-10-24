@@ -1,4 +1,5 @@
 import React, { FC } from 'react'
+import ReactPlayer from 'react-player'
 import { IPoultry, IPoultryImage } from '@cig-platform/types'
 
 import {
@@ -8,7 +9,9 @@ import {
   StyledInfoKey,
   StyledInfoList,
   StyledInfoValue,
-  StyledDescription
+  StyledDescription,
+  StyledVideoContainer,
+  StyledVideoTitle
 } from './Poultry.styles'
 
 interface PoultryProps {
@@ -31,9 +34,32 @@ const Poultry: FC<PoultryProps> = ({ poultry, images }: PoultryProps) => {
   return (
     <StyledContainer>
       <StyledTitle>{poultry.name}</StyledTitle>
+
       <StyledDescription>
         {poultry.description}
       </StyledDescription>
+
+      {poultry.videos.presentation && (
+        <StyledVideoContainer>
+          <StyledVideoTitle>Vídeo de apresentação</StyledVideoTitle>
+          <ReactPlayer url={poultry.videos.presentation} />
+        </StyledVideoContainer>
+      )}
+
+      {poultry.videos.walking && (
+        <StyledVideoContainer>
+          <StyledVideoTitle>Vídeo andando</StyledVideoTitle>
+          <ReactPlayer url={poultry.videos.walking} />
+        </StyledVideoContainer>
+      )}
+
+      {poultry.videos.measurement && (
+        <StyledVideoContainer>
+          <StyledVideoTitle>Vídeo de medição</StyledVideoTitle>
+          <ReactPlayer url={poultry.videos.measurement} />
+        </StyledVideoContainer>
+      )}
+
       <StyledInfoList>
         <StyledInfoItem>
           <StyledInfoKey>

@@ -13,7 +13,12 @@ const Template: ComponentStory<typeof Poultry> = (args) => <Poultry {...args} />
 
 export const Example = Template.bind({})
 Example.args = {
-  poultry: poultryFactory(),
+  poultry: poultryFactory({
+    videos: {
+      measurement: 'https://www.youtube.com/watch?v=Hh9vXojYq9A',
+      presentation: 'https://www.youtube.com/watch?v=Hh9vXojYq9A'
+    }
+  }),
   images: [
     {
       imageUrl: '1633798026572-6edaa0a3-567e-4656-ad2a-a5c9c45e2655.jpeg',

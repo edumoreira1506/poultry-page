@@ -35,6 +35,7 @@ export const StyledInfoList = styled.ul`
 
   ${createMinWidthMediaQuery(`
     margin: 0 auto;
+    width: 50%;
   `)}
 `
 
@@ -50,4 +51,29 @@ export const StyledInfoKey = styled.div`
 
 export const StyledInfoValue = styled.div`
   font-weight: light;
+`
+
+export const StyledVideoContainer = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 10px;
+
+  & > div {
+    width: 100% !important;
+    height: 200px !important;
+
+    ${createMinWidthMediaQuery(`
+      width: 50% !important;
+      height: 400px !important;
+      max-width: 1280px;
+      margin: 0 auto;
+    `)}
+  }
+`
+
+export const StyledVideoTitle = styled.p`
+  font-weight: bold;
+  font-size: 1.2em;
 `
