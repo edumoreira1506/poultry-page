@@ -1,5 +1,6 @@
-import React, { FC } from 'react'
+import React, { FC, useMemo } from 'react'
 import ReactPlayer from 'react-player'
+import { ImageGallery } from '@cig-platform/ui'
 import { IPoultry, IPoultryImage } from '@cig-platform/types'
 
 import {
@@ -11,7 +12,8 @@ import {
   StyledInfoValue,
   StyledDescription,
   StyledVideoContainer,
-  StyledVideoTitle
+  StyledVideoTitle,
+  StyledGalleryContainer
 } from './Poultry.styles'
 
 interface PoultryProps {
@@ -31,6 +33,11 @@ const getColor = (originalColor = '') => {
 }
 
 const Poultry: FC<PoultryProps> = ({ poultry, images }: PoultryProps) => {
+  const formattedImagesOfGallery = useMemo(() => images.map((image) => ({
+    original: `https://cig-maketplace.s3.sa-east-1.amazonaws.com/poultries/images/${image.imageUrl}`,
+    thumbnail: `https://cig-maketplace.s3.sa-east-1.amazonaws.com/poultries/images/${image.imageUrl}`,
+  })), [])
+
   return (
     <StyledContainer>
       <StyledTitle>{poultry.name}</StyledTitle>
@@ -58,6 +65,15 @@ const Poultry: FC<PoultryProps> = ({ poultry, images }: PoultryProps) => {
           <StyledVideoTitle>Vídeo de medição</StyledVideoTitle>
           <ReactPlayer url={poultry.videos.measurement} />
         </StyledVideoContainer>
+      )}
+
+      {Boolean(images.length) && (
+        <StyledGalleryContainer>
+          <ImageGallery
+            items={formattedImagesOfGallery}
+            showPlayButton={false}
+          />
+        </StyledGalleryContainer>
       )}
 
       <StyledInfoList>

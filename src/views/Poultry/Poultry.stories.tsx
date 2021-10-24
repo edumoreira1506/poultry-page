@@ -19,11 +19,9 @@ Example.args = {
       presentation: 'https://www.youtube.com/watch?v=Hh9vXojYq9A'
     }
   }),
-  images: [
-    {
-      imageUrl: '1633798026572-6edaa0a3-567e-4656-ad2a-a5c9c45e2655.jpeg',
-      id: '',
-      poultryId: ''
-    }
-  ]
+  images: Array(10).fill({
+    imageUrl: '1634766823222-c4f8a3c6-713d-45f0-a492-49643cf32ed6.jpeg',
+    id: '',
+    poultryId: ''
+  })
 }

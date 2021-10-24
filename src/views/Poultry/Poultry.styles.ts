@@ -77,3 +77,12 @@ export const StyledVideoTitle = styled.p`
   font-weight: bold;
   font-size: 1.2em;
 `
+
+export const StyledGalleryContainer = styled.div`
+  margin-bottom: 15px;
+
+  ${createMinWidthMediaQuery(`
+    width: 50%;
+    margin: 0 auto;
+  `)}
+`
