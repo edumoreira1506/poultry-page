@@ -5,6 +5,7 @@
   "dependencies": {
     "@cig-platform/factories": "^0.0.9",
     "@cig-platform/types": "^0.0.14",
+    "@cig-platform/ui": "^0.1.52",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.1.0",
     "@testing-library/user-event": "^12.1.10",
