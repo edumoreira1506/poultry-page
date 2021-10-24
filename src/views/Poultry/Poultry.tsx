@@ -46,24 +46,24 @@ const Poultry: FC<PoultryProps> = ({ poultry, images }: PoultryProps) => {
         {poultry.description}
       </StyledDescription>
 
-      {poultry.videos.presentation && (
+      {poultry.videos?.presentation && (
         <StyledVideoContainer>
           <StyledVideoTitle>Vídeo de apresentação</StyledVideoTitle>
-          <ReactPlayer url={poultry.videos.presentation} />
+          <ReactPlayer url={poultry.videos?.presentation} />
         </StyledVideoContainer>
       )}
 
-      {poultry.videos.walking && (
+      {poultry.videos?.walking && (
         <StyledVideoContainer>
           <StyledVideoTitle>Vídeo andando</StyledVideoTitle>
-          <ReactPlayer url={poultry.videos.walking} />
+          <ReactPlayer url={poultry.videos?.walking} />
         </StyledVideoContainer>
       )}
 
-      {poultry.videos.measurement && (
+      {poultry.videos?.measurement && (
         <StyledVideoContainer>
           <StyledVideoTitle>Vídeo de medição</StyledVideoTitle>
-          <ReactPlayer url={poultry.videos.measurement} />
+          <ReactPlayer url={poultry.videos?.measurement} />
         </StyledVideoContainer>
       )}
 
