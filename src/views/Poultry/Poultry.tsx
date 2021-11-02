@@ -2,6 +2,7 @@ import React, { FC, useCallback, useMemo, useState } from 'react'
 import ReactPlayer from 'react-player'
 import { ImageGallery, Timeline, Modal } from '@cig-platform/ui'
 import { IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
+import { BsFillEggFill } from 'react-icons/bs'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
 
@@ -20,7 +21,9 @@ import {
   StyledVideoTitle,
   StyledGalleryContainer,
   StyledTimeline,
-  StyledTimelineTitle
+  StyledTimelineTitle,
+  StyledBirthDate,
+  StyledBirhDateText
 } from './Poultry.styles'
 
 interface PoultryProps {
@@ -45,13 +48,15 @@ const Poultry: FC<PoultryProps> = ({
   images,
   registers
 }: PoultryProps) => {
-  const [selectedRegister, setSelectedRegister] = useState<IPoultryRegister>()
+  const [selectedRegister, setSelectedRegister] = useState<Partial<IPoultryRegister>>()
 
   const formattedImagesOfGallery = useMemo(() => images.map(i => imageFormatter(i.imageUrl)), [images])
 
-  const formattedTimelineItems = useMemo(() => timelineFormatter(registers), [registers])
+  const formattedTimelineItems = useMemo(() => timelineFormatter(registers, poultry), [registers])
 
   const handleExpandTimelineItem = useCallback((key: string) => {
+    if (key === 'BIRTH_DATE') setSelectedRegister({ type: 'BIRTH_DATE' })
+
     const register = registers.find((r) => r.id === key)
 
     if (!register) return
@@ -71,6 +76,15 @@ const Poultry: FC<PoultryProps> = ({
             showPlayButton={false}
             items={selectedRegister?.files?.map(file => imageFormatter(file.fileName)) ?? []}
           />
+        )}
+
+        {selectedRegister?.type === 'BIRTH_DATE' && (
+          <StyledBirthDate>
+            <StyledBirhDateText>
+              {['Animal foi registrado em', new Intl.DateTimeFormat('pt-BR').format(poultry.birthDate)].join(' ')} 
+            </StyledBirhDateText>
+            <BsFillEggFill />
+          </StyledBirthDate>
         )}
       </Modal>
 

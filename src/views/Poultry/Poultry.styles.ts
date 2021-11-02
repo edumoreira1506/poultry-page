@@ -98,3 +98,24 @@ export const StyledTimelineTitle = styled.p`
   text-align: center;
   color: ${Colors.DarkGrey};
 `
+
+export const StyledBirthDate = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-weight: lighter;
+  font-size: 2em;
+  text-transform: uppercase;
+  color: ${Colors.LightGrey};
+  font-family: ${MAIN_FONT};
+
+  svg {
+    font-size: 4em;
+  }
+`
+
+export const StyledBirhDateText = styled.p`
+  margin-bottom: 30px;
+`
