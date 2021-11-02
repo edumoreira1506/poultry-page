@@ -74,7 +74,7 @@ const Poultry: FC<PoultryProps> = ({
         {selectedRegister?.type === 'IMAGENS' && (
           <ImageGallery
             showPlayButton={false}
-            items={selectedRegister?.files?.map(file => imageFormatter(file.fileName)) ?? []}
+            items={selectedRegister?.files?.map(file => imageFormatter(file.fileName, 'registers')) ?? []}
           />
         )}
 
