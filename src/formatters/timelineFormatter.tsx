@@ -22,7 +22,7 @@ export default function timelineFormatter(registers: IPoultryRegister[], poultry
 
   return [
     birthDateRegister,
-    ...registers.map(register => ({
+    ...registers.reverse().map(register => ({
       key: register.id,
       description: register.description,
       date: register.date,
