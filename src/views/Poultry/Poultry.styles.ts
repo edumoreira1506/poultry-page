@@ -12,6 +12,7 @@ export const StyledTitle = styled.p`
   margin: 20px 0;
   font-weight: bold;
   font-size: 1.5em;
+  color: ${Colors.DarkGrey};
 `
 
 export const StyledDescription = styled.p`
@@ -76,6 +77,7 @@ export const StyledVideoContainer = styled.div`
 export const StyledVideoTitle = styled.p`
   font-weight: bold;
   font-size: 1.2em;
+  color: ${Colors.DarkGrey};
 `
 
 export const StyledGalleryContainer = styled.div`
@@ -85,4 +87,14 @@ export const StyledGalleryContainer = styled.div`
     width: 50%;
     margin: 0 auto;
   `)}
+`
+
+export const StyledTimeline = styled.div`
+  margin: 10px 0;
+`
+
+export const StyledTimelineTitle = styled.p`
+  font-family: ${MAIN_FONT};
+  text-align: center;
+  color: ${Colors.DarkGrey};
 `

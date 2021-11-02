@@ -1,7 +1,12 @@
-import React, { FC, useMemo } from 'react'
+import React, { FC, useCallback, useMemo, useState } from 'react'
 import ReactPlayer from 'react-player'
-import { ImageGallery } from '@cig-platform/ui'
-import { IPoultry, IPoultryImage } from '@cig-platform/types'
+import { ImageGallery, Timeline, Modal } from '@cig-platform/ui'
+import { IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
+
+import 'react-image-gallery/styles/css/image-gallery.css'
+
+import imageFormatter from '../../formatters/imageFormatter'
+import timelineFormatter from '../../formatters/timelineFormatter'
 
 import {
   StyledContainer,
@@ -13,12 +18,15 @@ import {
   StyledDescription,
   StyledVideoContainer,
   StyledVideoTitle,
-  StyledGalleryContainer
+  StyledGalleryContainer,
+  StyledTimeline,
+  StyledTimelineTitle
 } from './Poultry.styles'
 
 interface PoultryProps {
   poultry: IPoultry;
   images: IPoultryImage[];
+  registers: IPoultryRegister[];
 }
 
 const COLORS: Record<string, string> = {
@@ -32,14 +40,40 @@ const getColor = (originalColor = '') => {
   return color
 }
 
-const Poultry: FC<PoultryProps> = ({ poultry, images }: PoultryProps) => {
-  const formattedImagesOfGallery = useMemo(() => images.map((image) => ({
-    original: `https://cig-maketplace.s3.sa-east-1.amazonaws.com/poultries/images/${image.imageUrl}`,
-    thumbnail: `https://cig-maketplace.s3.sa-east-1.amazonaws.com/poultries/images/${image.imageUrl}`,
-  })), [])
+const Poultry: FC<PoultryProps> = ({
+  poultry,
+  images,
+  registers
+}: PoultryProps) => {
+  const [selectedRegister, setSelectedRegister] = useState<IPoultryRegister>()
+
+  const formattedImagesOfGallery = useMemo(() => images.map(i => imageFormatter(i.imageUrl)), [images])
+
+  const formattedTimelineItems = useMemo(() => timelineFormatter(registers), [registers])
+
+  const handleExpandTimelineItem = useCallback((key: string) => {
+    const register = registers.find((r) => r.id === key)
+
+    if (!register) return
+
+    setSelectedRegister(register)
+  }, [registers])
+
+  const handleCloseRegisterModal = useCallback(() => {
+    setSelectedRegister(undefined)
+  }, [])
 
   return (
     <StyledContainer>
+      <Modal isOpen={Boolean(selectedRegister)} onClose={handleCloseRegisterModal}>
+        {selectedRegister?.type === 'IMAGENS' && (
+          <ImageGallery
+            showPlayButton={false}
+            items={selectedRegister?.files?.map(file => imageFormatter(file.fileName)) ?? []}
+          />
+        )}
+      </Modal>
+
       <StyledTitle>{poultry.name}</StyledTitle>
 
       <StyledDescription>
@@ -74,6 +108,13 @@ const Poultry: FC<PoultryProps> = ({ poultry, images }: PoultryProps) => {
             showPlayButton={false}
           />
         </StyledGalleryContainer>
+      )}
+
+      {Boolean(formattedTimelineItems.length) && (
+        <StyledTimeline>
+          <StyledTimelineTitle>Registros do animal</StyledTimelineTitle>
+          <Timeline items={formattedTimelineItems} onExpandItem={handleExpandTimelineItem} />
+        </StyledTimeline>
       )}
 
       <StyledInfoList>
