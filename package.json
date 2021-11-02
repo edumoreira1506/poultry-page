@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@cig-platform/factories": "^0.0.9",
-    "@cig-platform/types": "^0.0.14",
+    "@cig-platform/types": "^0.0.15",
     "@cig-platform/ui": "^0.1.63",
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^11.1.0",
