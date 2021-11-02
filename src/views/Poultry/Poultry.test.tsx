@@ -7,6 +7,7 @@ import Poultry from './Poultry'
 const DEFAULT_PROPS = {
   poultry: poultryFactory(),
   images: [],
+  registers: []
 }
 
 describe('Poultry', () => {

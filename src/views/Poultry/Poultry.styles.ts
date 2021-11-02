@@ -12,6 +12,7 @@ export const StyledTitle = styled.p`
   margin: 20px 0;
   font-weight: bold;
   font-size: 1.5em;
+  color: ${Colors.DarkGrey};
 `
 
 export const StyledDescription = styled.p`
@@ -76,6 +77,7 @@ export const StyledVideoContainer = styled.div`
 export const StyledVideoTitle = styled.p`
   font-weight: bold;
   font-size: 1.2em;
+  color: ${Colors.DarkGrey};
 `
 
 export const StyledGalleryContainer = styled.div`
@@ -85,4 +87,35 @@ export const StyledGalleryContainer = styled.div`
     width: 50%;
     margin: 0 auto;
   `)}
+`
+
+export const StyledTimeline = styled.div`
+  margin: 10px 0;
+`
+
+export const StyledTimelineTitle = styled.p`
+  font-family: ${MAIN_FONT};
+  text-align: center;
+  color: ${Colors.DarkGrey};
+`
+
+export const StyledBirthDate = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-weight: lighter;
+  font-size: 2em;
+  text-transform: uppercase;
+  color: ${Colors.LightGrey};
+  font-family: ${MAIN_FONT};
+
+  svg {
+    font-size: 4em;
+  }
+`
+
+export const StyledBirhDateText = styled.p`
+  margin-bottom: 30px;
 `
