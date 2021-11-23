@@ -119,3 +119,7 @@ export const StyledBirthDate = styled.div`
 export const StyledBirhDateText = styled.p`
   margin-bottom: 30px;
 `
+
+export const StyledPrice = styled.p`
+  text-align: center;
+`

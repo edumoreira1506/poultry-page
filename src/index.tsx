@@ -1,6 +1,6 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
+import { IAdvertising, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
 
 import Poultry from './views/Poultry/Poultry';
 
@@ -9,12 +9,13 @@ import Poultry from './views/Poultry/Poultry';
   poultry: IPoultry,
   images: IPoultryImage[] = [],
   registers: IPoultryRegister[] = [],
+  advertising?: IAdvertising
 ) => {
   const targetDocument = document.getElementById(containerId)
 
   if (targetDocument) {
     ReactDOM.render(
-      <Poultry poultry={poultry} images={images} registers={registers} />,
+      <Poultry poultry={poultry} images={images} registers={registers} advertising={advertising} />,
       targetDocument,
     )
   }

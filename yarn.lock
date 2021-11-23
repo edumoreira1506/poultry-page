@@ -1324,25 +1324,32 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cig-platform/factories@^0.0.9":
-  version "0.0.9"
-  resolved "https://registry.yarnpkg.com/@cig-platform/factories/-/factories-0.0.9.tgz#e026562a0361d8e6ec3ab7818f8e60bad9cb7ab2"
-  integrity sha512-ODZHHZXGuuDAV92muhxGZts2m5JmdQQ6vkE2FKHNQ2rvNDxTzvlmCFtgL4Om9vrMA+fMONU1zKOEftQj2t/KjA==
+"@cig-platform/factories@^0.0.11":
+  version "0.0.11"
+  resolved "https://registry.yarnpkg.com/@cig-platform/factories/-/factories-0.0.11.tgz#a44b6da2336f8df8f2301bf78a5f6e5fa5de3e99"
+  integrity sha512-ZqjxAhOigZqY/q90Nb8k+/glLduo4irZMptyQlwhEmKrshX1nQc/47Jh8b2y25ZfzTPsecM7+3hZQOeir3Yxxg==
   dependencies:
-    "@cig-platform/types" "0.0.14"
+    "@cig-platform/types" "0.0.18"
     faker "^5.5.3"
 
-"@cig-platform/types@0.0.14", "@cig-platform/types@^0.0.14":
+"@cig-platform/types@0.0.18":
+  version "0.0.18"
+  resolved "https://registry.yarnpkg.com/@cig-platform/types/-/types-0.0.18.tgz#2ed342a81a8185e1d7465af451f6f61d245bfc69"
+  integrity sha512-IBVogxmDf/xtYaU0PtQkZnu34ZT9ftpRJk1+r7k7vMTgibbm4cIv7XCcOnARIMLVZNw79/w/AP2CIZbDtBPYMw==
+  dependencies:
+    express "^4.17.1"
+
+"@cig-platform/types@^0.0.14":
   version "0.0.14"
   resolved "https://registry.yarnpkg.com/@cig-platform/types/-/types-0.0.14.tgz#0ff5cf055a97da735b32ec4703f2f813306c063b"
   integrity sha512-BLPzdGqZuDJWRjh/3jtHS1M6dMGJyKRZobnNhsSCbh/ZdnzYB1fKxGxsevXMe4ikQGlhSd60+T1zPsKHMJT+CQ==
   dependencies:
     express "^4.17.1"
 
-"@cig-platform/types@^0.0.15":
-  version "0.0.15"
-  resolved "https://registry.yarnpkg.com/@cig-platform/types/-/types-0.0.15.tgz#757a0364369aae6f23daa2852c28d7091cc1ae75"
-  integrity sha512-Skn/jGIUfN0h/9VUHe+dfJ55ZwxtUlyC3oAmhhLFp0IdosjC3ormllRhl1cSnT1bY0Vdnpz9s2ZyX30/nx1WFA==
+"@cig-platform/types@^0.0.19":
+  version "0.0.19"
+  resolved "https://registry.yarnpkg.com/@cig-platform/types/-/types-0.0.19.tgz#581294312dcca29a2cb56e867a104ec615e88e5c"
+  integrity sha512-bwOtd81+uoYp0X5o4whD55lCE2KeKWeYRlpphxFeAr4apfFgK/cNazfMIlMek7Oqjg8vJZ2QeN2FeOV/j/E58g==
   dependencies:
     express "^4.17.1"
 
