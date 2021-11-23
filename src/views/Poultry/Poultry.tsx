@@ -1,7 +1,7 @@
 import React, { FC, useCallback, useMemo, useState } from 'react'
 import ReactPlayer from 'react-player'
 import { ImageGallery, Timeline, Modal } from '@cig-platform/ui'
-import { IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
+import { IAdvertising, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
 import { BsFillEggFill } from 'react-icons/bs'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
@@ -23,13 +23,15 @@ import {
   StyledTimeline,
   StyledTimelineTitle,
   StyledBirthDate,
-  StyledBirhDateText
+  StyledBirhDateText,
+  StyledPrice
 } from './Poultry.styles'
 
 interface PoultryProps {
   poultry: IPoultry;
   images: IPoultryImage[];
   registers: IPoultryRegister[];
+  advertising?: IAdvertising;
 }
 
 const COLORS: Record<string, string> = {
@@ -46,7 +48,8 @@ const getColor = (originalColor = '') => {
 const Poultry: FC<PoultryProps> = ({
   poultry,
   images,
-  registers
+  registers,
+  advertising
 }: PoultryProps) => {
   const [selectedRegister, setSelectedRegister] = useState<Partial<IPoultryRegister>>()
 
@@ -213,6 +216,10 @@ const Poultry: FC<PoultryProps> = ({
           </StyledInfoValue>
         </StyledInfoItem>
       </StyledInfoList>
+
+      {advertising && (
+        <StyledPrice>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(advertising.price / 100)}</StyledPrice>
+      )}
     </StyledContainer>
   )
 }

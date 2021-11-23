@@ -35,5 +35,10 @@ Example.args = {
     }, {
       fileName: '1634766823222-c4f8a3c6-713d-45f0-a492-49643cf32ed6.jpeg',
     }]
-  }]
+  }],
+  advertising: {
+    price: 1500,
+    id: 'id',
+    externalId: 'externalId'
+  }
 }
