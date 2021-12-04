@@ -1,15 +1,17 @@
 import React, { ReactNode } from 'react'
 import { IPoultry, IPoultryRegister } from '@cig-platform/types'
-import { AiFillFileImage } from 'react-icons/ai'
+import { AiFillFileImage, AiOutlineRollback } from 'react-icons/ai'
 import { FaBalanceScaleLeft } from 'react-icons/fa'
 import { BiPlusMedical } from 'react-icons/bi'
-import { BsRulers, BsFillEggFill } from 'react-icons/bs'
+import { BsRulers, BsFillEggFill, BsFillMegaphoneFill } from 'react-icons/bs'
 
 const icons: Record<string, ReactNode> = {
   IMAGENS: <AiFillFileImage />,
   'MEDIÇÃO': <BsRulers />,
   PESAGEM: <FaBalanceScaleLeft />,
-  'VACINAÇÃO': <BiPlusMedical />
+  'VACINAÇÃO': <BiPlusMedical />,
+  'ANÚNCIO': <BsFillMegaphoneFill />,
+  'REMOÇÃO DE ANÚNCIO': <AiOutlineRollback />,
 }
 
 export default function timelineFormatter(registers: IPoultryRegister[], poultry: IPoultry) {
