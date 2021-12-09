@@ -2,7 +2,7 @@ import React, { ReactNode } from 'react'
 import { IPoultry, IPoultryRegister } from '@cig-platform/types'
 import { AiFillFileImage, AiOutlineRollback } from 'react-icons/ai'
 import { FaBalanceScaleLeft } from 'react-icons/fa'
-import { BiPlusMedical } from 'react-icons/bi'
+import { BiPlusMedical, BiTransfer } from 'react-icons/bi'
 import { BsRulers, BsFillEggFill, BsFillMegaphoneFill } from 'react-icons/bs'
 
 const icons: Record<string, ReactNode> = {
@@ -12,6 +12,7 @@ const icons: Record<string, ReactNode> = {
   'VACINAÇÃO': <BiPlusMedical />,
   'ANÚNCIO': <BsFillMegaphoneFill />,
   'REMOÇÃO DE ANÚNCIO': <AiOutlineRollback />,
+  'TRANSFERÊNCIA': <BiTransfer />
 }
 
 export default function timelineFormatter(registers: IPoultryRegister[], poultry: IPoultry) {
