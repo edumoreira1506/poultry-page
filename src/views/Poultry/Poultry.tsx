@@ -1,6 +1,6 @@
 import React, { FC, useCallback, useMemo, useState } from 'react'
 import ReactPlayer from 'react-player'
-import { ImageGallery, Timeline, Modal } from '@cig-platform/ui'
+import { ImageGallery, Timeline, Modal, Table } from '@cig-platform/ui'
 import { IAdvertising, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
 import { BsFillEggFill } from 'react-icons/bs'
 
@@ -24,7 +24,9 @@ import {
   StyledTimelineTitle,
   StyledBirthDate,
   StyledBirhDateText,
-  StyledPrice
+  StyledPrice,
+  StyledTable,
+  StyledTableTitle
 } from './Poultry.styles'
 
 interface PoultryProps {
@@ -57,6 +59,9 @@ const Poultry: FC<PoultryProps> = ({
 
   const formattedTimelineItems = useMemo(() => timelineFormatter(registers, poultry), [registers])
 
+  const vaccines = useMemo(() => registers?.filter(({ type }) => type === 'VACINAÇÃO') ?? [], [registers])
+  const measurementsAndWeighint = useMemo(() => registers?.filter(({ type }) => type === 'MEDIÇÃO E PESAGEM') ?? [], [registers])
+
   const handleExpandTimelineItem = useCallback((key: string) => {
     if (key === 'BIRTH_DATE') setSelectedRegister({ type: 'BIRTH_DATE' })
 
@@ -70,6 +75,16 @@ const Poultry: FC<PoultryProps> = ({
   const handleCloseRegisterModal = useCallback(() => {
     setSelectedRegister(undefined)
   }, [])
+
+  const formattedVaccinesRows = useMemo(() => vaccines.map(vaccine => ({
+    items: [new Intl.DateTimeFormat('pt-BR').format(new Date(vaccine.date)), vaccine?.metadata?.name, `${vaccine?.metadata?.dose}ª`],
+    expandedContent: vaccine.description
+  })).reverse(), [vaccines])
+
+  const formattedMeasurementAndWeighintRows = useMemo(() => measurementsAndWeighint.map(register => ({
+    items: [new Intl.DateTimeFormat('pt-BR').format(new Date(register.date)), `${register?.metadata?.weight} KG`, `${register?.metadata?.measurement} CM`],
+    expandedContent: register.description
+  })).reverse(), [measurementsAndWeighint])
 
   return (
     <StyledContainer>
@@ -132,6 +147,32 @@ const Poultry: FC<PoultryProps> = ({
           <StyledTimelineTitle>Registros do animal</StyledTimelineTitle>
           <Timeline items={formattedTimelineItems} onExpandItem={handleExpandTimelineItem} />
         </StyledTimeline>
+      )}
+
+      {Boolean(vaccines.length) && (
+        <>
+          <StyledTableTitle>Vacinas aplicadas</StyledTableTitle>
+          <StyledTable>
+            <Table
+              hasExpandColumn
+              columns={['Data', 'Nome', 'Dose']}
+              rows={formattedVaccinesRows}
+            />
+          </StyledTable>
+        </>
+      )}
+
+      {Boolean(measurementsAndWeighint.length) && (
+        <>
+          <StyledTableTitle>AMFA</StyledTableTitle>
+          <StyledTable>
+            <Table
+              hasExpandColumn
+              columns={['Data', 'Peso', 'Medida']}
+              rows={formattedMeasurementAndWeighintRows}
+            />
+          </StyledTable>
+        </>
       )}
 
       <StyledInfoList>
