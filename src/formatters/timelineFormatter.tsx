@@ -1,14 +1,12 @@
 import React, { ReactNode } from 'react'
 import { IPoultry, IPoultryRegister } from '@cig-platform/types'
 import { AiFillFileImage, AiOutlineRollback } from 'react-icons/ai'
-import { FaBalanceScaleLeft } from 'react-icons/fa'
 import { BiPlusMedical, BiTransfer } from 'react-icons/bi'
 import { BsRulers, BsFillEggFill, BsFillMegaphoneFill } from 'react-icons/bs'
 
 const icons: Record<string, ReactNode> = {
   IMAGENS: <AiFillFileImage />,
-  'MEDIÇÃO': <BsRulers />,
-  PESAGEM: <FaBalanceScaleLeft />,
+  'MEDIÇÃO E PESAGEM': <BsRulers />,
   'VACINAÇÃO': <BiPlusMedical />,
   'ANÚNCIO': <BsFillMegaphoneFill />,
   'REMOÇÃO DE ANÚNCIO': <AiOutlineRollback />,
