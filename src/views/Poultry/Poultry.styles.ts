@@ -145,3 +145,5 @@ export const StyledTable = styled.div`
     padding-bottom: 15px;
   `)}
 `
+
+export const StyledTableModal = styled.div``

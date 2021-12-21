@@ -8,6 +8,7 @@ import 'react-image-gallery/styles/css/image-gallery.css'
 
 import imageFormatter from '../../formatters/imageFormatter'
 import timelineFormatter from '../../formatters/timelineFormatter'
+import dateFormatter from '../../formatters/dateFormatter'
 
 import {
   StyledContainer,
@@ -26,7 +27,8 @@ import {
   StyledBirhDateText,
   StyledPrice,
   StyledTable,
-  StyledTableTitle
+  StyledTableTitle,
+  StyledTableModal
 } from './Poultry.styles'
 
 interface PoultryProps {
@@ -77,12 +79,12 @@ const Poultry: FC<PoultryProps> = ({
   }, [])
 
   const formattedVaccinesRows = useMemo(() => vaccines.map(vaccine => ({
-    items: [new Intl.DateTimeFormat('pt-BR').format(new Date(vaccine.date)), vaccine?.metadata?.name, `${vaccine?.metadata?.dose}ª`],
+    items: [dateFormatter(String(vaccine.date)), vaccine?.metadata?.name, `${vaccine?.metadata?.dose}ª`],
     expandedContent: vaccine.description
   })).reverse(), [vaccines])
 
   const formattedMeasurementAndWeighintRows = useMemo(() => measurementsAndWeighint.map(register => ({
-    items: [new Intl.DateTimeFormat('pt-BR').format(new Date(register.date)), `${register?.metadata?.weight} KG`, `${register?.metadata?.measurement} CM`],
+    items: [dateFormatter(String(register.date)), `${register?.metadata?.weight} KG`, `${register?.metadata?.measurement} CM`],
     expandedContent: register.description
   })).reverse(), [measurementsAndWeighint])
 
@@ -103,6 +105,16 @@ const Poultry: FC<PoultryProps> = ({
             </StyledBirhDateText>
             <BsFillEggFill />
           </StyledBirthDate>
+        )}
+
+        {selectedRegister?.type === 'MEDIÇÃO E PESAGEM' && (
+          <StyledTableModal>
+            <Table
+              columns={['Data', 'Peso', 'Medida']}
+              rows={[{ items: [dateFormatter(String(selectedRegister?.date)), `${selectedRegister?.metadata?.weight} KG`, `${selectedRegister?.metadata?.measurement} CM`], expandedContent: String(selectedRegister?.description) }]}
+              hasExpandColumn
+            />
+          </StyledTableModal>
         )}
       </Modal>
 
