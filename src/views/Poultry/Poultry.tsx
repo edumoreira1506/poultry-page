@@ -3,6 +3,7 @@ import ReactPlayer from 'react-player'
 import { ImageGallery, Timeline, Modal, Table } from '@cig-platform/ui'
 import { IAdvertising, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
 import { BsFillEggFill, BsFillMegaphoneFill } from 'react-icons/bs'
+import { AiOutlineRollback } from 'react-icons/ai'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
 
@@ -113,6 +114,15 @@ const Poultry: FC<PoultryProps> = ({
               {selectedRegister?.description} 
             </StyledBirhDateText>
             <BsFillMegaphoneFill />
+          </StyledBirthDate>
+        )}
+
+        {selectedRegister?.type === 'REMOÇÃO DE ANÚNCIO' && (
+          <StyledBirthDate>
+            <StyledBirhDateText>
+              {selectedRegister?.description} 
+            </StyledBirhDateText>
+            <AiOutlineRollback />
           </StyledBirthDate>
         )}
 
