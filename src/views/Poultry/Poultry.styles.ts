@@ -118,6 +118,12 @@ export const StyledBirthDate = styled.div`
 
 export const StyledBirhDateText = styled.p`
   margin-bottom: 30px;
+  text-align: center;
+  font-size: 0.5em;
+
+  ${createMinWidthMediaQuery(`
+    font-size: 1em;
+  `)}
 `
 
 export const StyledPrice = styled.p`
@@ -139,3 +145,5 @@ export const StyledTable = styled.div`
     padding-bottom: 15px;
   `)}
 `
+
+export const StyledTableModal = styled.div``
