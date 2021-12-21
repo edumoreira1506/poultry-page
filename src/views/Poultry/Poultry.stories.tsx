@@ -60,6 +60,14 @@ Example.args = {
         measurement: '125',
       },
       files: []
+    },
+    {
+      id: '714f3278-5bb1-4e3f-bd30-9acba448fb2f',
+      poultryId: '20bc2d1c-548f-461c-872c-07d7746e11b4',
+      description: 'Ave anúnciada no criatório XPTO',
+      date: new Date('2021-10-26T02:19:31.991Z'),
+      type: 'ANÚNCIO',
+      files: []
     }
   ],
   advertising: {
