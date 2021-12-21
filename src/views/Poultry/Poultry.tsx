@@ -4,6 +4,7 @@ import { ImageGallery, Timeline, Modal, Table } from '@cig-platform/ui'
 import { IAdvertising, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
 import { BsFillEggFill, BsFillMegaphoneFill } from 'react-icons/bs'
 import { AiOutlineRollback } from 'react-icons/ai'
+import { BiTransfer } from 'react-icons/bi'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
 
@@ -123,6 +124,15 @@ const Poultry: FC<PoultryProps> = ({
               {selectedRegister?.description} 
             </StyledBirhDateText>
             <AiOutlineRollback />
+          </StyledBirthDate>
+        )}
+
+        {selectedRegister?.type === 'TRANSFERÊNCIA' && (
+          <StyledBirthDate>
+            <StyledBirhDateText>
+              {selectedRegister?.description} 
+            </StyledBirhDateText>
+            <BiTransfer />
           </StyledBirthDate>
         )}
 
