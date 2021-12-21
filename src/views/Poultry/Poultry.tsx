@@ -2,7 +2,7 @@ import React, { FC, useCallback, useMemo, useState } from 'react'
 import ReactPlayer from 'react-player'
 import { ImageGallery, Timeline, Modal, Table } from '@cig-platform/ui'
 import { IAdvertising, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
-import { BsFillEggFill } from 'react-icons/bs'
+import { BsFillEggFill, BsFillMegaphoneFill } from 'react-icons/bs'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
 
@@ -104,6 +104,15 @@ const Poultry: FC<PoultryProps> = ({
               {['Animal foi registrado em', new Intl.DateTimeFormat('pt-BR').format(poultry.birthDate)].join(' ')} 
             </StyledBirhDateText>
             <BsFillEggFill />
+          </StyledBirthDate>
+        )}
+
+        {selectedRegister?.type === 'ANÚNCIO' && (
+          <StyledBirthDate>
+            <StyledBirhDateText>
+              {selectedRegister?.description} 
+            </StyledBirhDateText>
+            <BsFillMegaphoneFill />
           </StyledBirthDate>
         )}
 
