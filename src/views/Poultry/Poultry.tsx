@@ -107,6 +107,16 @@ const Poultry: FC<PoultryProps> = ({
           </StyledBirthDate>
         )}
 
+        {selectedRegister?.type === 'VACINAÇÃO' && (
+          <StyledTableModal>
+            <Table
+              columns={['Data', 'Nome', 'Dose']}
+              rows={[{ items: [dateFormatter(String(selectedRegister?.date)), selectedRegister?.metadata?.name, `${selectedRegister?.metadata?.dose}ª`], expandedContent: String(selectedRegister?.description) }]}
+              hasExpandColumn
+            />
+          </StyledTableModal>
+        )}
+
         {selectedRegister?.type === 'MEDIÇÃO E PESAGEM' && (
           <StyledTableModal>
             <Table
