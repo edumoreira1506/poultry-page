@@ -26,7 +26,7 @@ Example.args = {
   }),
   registers: [
     {
-      id: '714f3278-5bb1-4e3f-bd30-9acba448fb2a',
+      id: '714f3278-5bb1-4e3f-bd30-9acba448fb2d',
       poultryId: '20bc2d1c-548f-461c-872c-07d7746e11b4',
       description: 'Atualizações de domingo',
       date: new Date('2021-10-26T02:19:31.991Z'),
@@ -38,7 +38,7 @@ Example.args = {
       }]
     },
     {
-      id: '714f3278-5bb1-4e3f-bd30-9acba448fb2b',
+      id: '714f3278-5bb1-4e3f-bd30-9acba448fb2c',
       poultryId: '20bc2d1c-548f-461c-872c-07d7746e11b4',
       description: 'Atualizações de segunda-feira',
       date: new Date('2021-10-26T02:19:31.991Z'),
@@ -50,7 +50,7 @@ Example.args = {
       files: []
     },
     {
-      id: '714f3278-5bb1-4e3f-bd30-9acba448fb2b',
+      id: '714f3278-5bb1-4e3f-bd30-9acba448fb2a',
       poultryId: '20bc2d1c-548f-461c-872c-07d7746e11b4',
       description: 'Atualizações de segunda-feira',
       date: new Date('2021-10-26T02:19:31.991Z'),
