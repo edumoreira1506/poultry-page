@@ -15,6 +15,5 @@ describe('Poultry', () => {
     render(<Poultry {...DEFAULT_PROPS} />)
 
     expect(screen.getByText(DEFAULT_PROPS.poultry.name)).toBeInTheDocument()
-    expect(screen.getByText(DEFAULT_PROPS.poultry.description)).toBeInTheDocument()
   })
 })

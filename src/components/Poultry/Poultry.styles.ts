@@ -7,22 +7,27 @@ export const StyledContainer = styled.main`
   font-family: ${MAIN_FONT};
 `
 
-export const StyledTitle = styled.p`
-  text-align: center;
-  margin: 20px 0;
-  font-weight: bold;
-  font-size: 1.5em;
-  color: ${Colors.DarkGrey};
+export const StyledHeader = styled.div`
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 800px;
+  margin: 0 auto;
 `
 
-export const StyledDescription = styled.p`
-  margin-bottom: 25px;
+export const StyledHeaderText = styled.p`
+  font-weight: bold;
+  font-size: 1em;
+  color: ${Colors.Black};
 
-  ${createMinWidthMediaQuery(`
-    width: 50%;
-    margin: 0 auto;
-    padding-bottom: 25px;
-  `)}
+  &:nth-child(1) {
+    text-align: left;
+  }
+
+  &:nth-child(2) {
+    text-align: right;
+  }
 `
 
 export const StyledInfoList = styled.ul`
