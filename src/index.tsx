@@ -1,21 +1,19 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { IAdvertising, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
+import { QueryClient, QueryClientProvider } from 'react-query'
 
-import Poultry from './components/Poultry/Poultry';
+import PoultryContainer from './containers/PoultryContainer/PoultryContainer'
 
-(window as any).renderPoultryPage = (
-  containerId: string,
-  poultry: IPoultry,
-  images: IPoultryImage[] = [],
-  registers: IPoultryRegister[] = [],
-  advertising?: IAdvertising
-) => {
+const queryClient = new QueryClient();
+
+(window as any).renderPoultryPage = (containerId: string, breederId: string, poultryId: string) => {
   const targetDocument = document.getElementById(containerId)
 
   if (targetDocument) {
     ReactDOM.render(
-      <Poultry poultry={poultry} images={images} registers={registers} advertising={advertising} />,
+      <QueryClientProvider client={queryClient}>
+        <PoultryContainer poultryId={poultryId} breederId={breederId} />
+      </QueryClientProvider>,
       targetDocument,
     )
   }
