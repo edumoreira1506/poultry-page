@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@cig-platform/content-search-client": "^0.0.4",
+    "@cig-platform/content-search-client": "^0.0.5",
     "@cig-platform/factories": "^0.0.11",
     "@cig-platform/types": "^0.0.20",
     "@cig-platform/ui": "^0.1.71",
