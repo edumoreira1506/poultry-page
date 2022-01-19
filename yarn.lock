@@ -1502,10 +1502,10 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cig-platform/content-search-client@^0.0.5":
-  version "0.0.5"
-  resolved "https://registry.yarnpkg.com/@cig-platform/content-search-client/-/content-search-client-0.0.5.tgz#8ff6b5db37db52329280cb8403eae3c864bf5355"
-  integrity sha512-cG6XIvUwI9DN03FtzuQSa7x49tS2oIP4EGslh5x1mqT6fQY4hT5m01iRHzuR4+n/MJbeSo1c2/mumugJuqDHBQ==
+"@cig-platform/content-search-client@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@cig-platform/content-search-client/-/content-search-client-0.0.6.tgz#ccb60d9379b9b5e3bed098abc3734ffda47fcd7a"
+  integrity sha512-bmn46ejaV1bHmcy2biazF+7sk1gTT5eAY3vbz+p4K8OOWMr37jxRusUW0aGFajjLT4hwVG04MgbKwD1nI/iAUA==
   dependencies:
     "@babel/plugin-proposal-decorators" "^7.16.4"
     "@cig-platform/decorators" "^0.0.1"
