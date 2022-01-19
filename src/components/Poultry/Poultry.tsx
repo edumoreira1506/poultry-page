@@ -34,9 +34,9 @@ import {
 } from './Poultry.styles'
 
 interface PoultryProps {
-  poultry: IPoultry;
+  poultry: Partial<IPoultry>;
   images: IPoultryImage[];
-  registers: IPoultryRegister[];
+  registers?: IPoultryRegister[];
   advertising?: IAdvertising;
 }
 
@@ -54,7 +54,7 @@ const getColor = (originalColor = '') => {
 const Poultry: FC<PoultryProps> = ({
   poultry,
   images,
-  registers,
+  registers = [],
   advertising
 }: PoultryProps) => {
   const [selectedRegister, setSelectedRegister] = useState<Partial<IPoultryRegister>>()
@@ -241,7 +241,7 @@ const Poultry: FC<PoultryProps> = ({
             Data de nascimento
           </StyledInfoKey>
           <StyledInfoValue>
-            {poultry.birthDate.toLocaleDateString('pt-BR', {timeZone: 'UTC'})}
+            {poultry?.birthDate?.toLocaleDateString('pt-BR', {timeZone: 'UTC'})}
           </StyledInfoValue>
         </StyledInfoItem>
 
@@ -250,7 +250,7 @@ const Poultry: FC<PoultryProps> = ({
             Cor da plumagem
           </StyledInfoKey>
           <StyledInfoValue>
-            {getColor(poultry.colors.plumage)}
+            {getColor(poultry?.colors?.plumage)}
           </StyledInfoValue>
         </StyledInfoItem>
 
@@ -259,7 +259,7 @@ const Poultry: FC<PoultryProps> = ({
             Cor dos olhos
           </StyledInfoKey>
           <StyledInfoValue>
-            {getColor(poultry.colors.eyes)}
+            {getColor(poultry?.colors?.eyes)}
           </StyledInfoValue>
         </StyledInfoItem>
 
@@ -268,7 +268,7 @@ const Poultry: FC<PoultryProps> = ({
             Cor das canelas
           </StyledInfoKey>
           <StyledInfoValue>
-            {getColor(poultry.colors.shins)}
+            {getColor(poultry?.colors?.shins)}
           </StyledInfoValue>
         </StyledInfoItem>
 

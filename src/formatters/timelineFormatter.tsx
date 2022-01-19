@@ -13,11 +13,11 @@ const icons: Record<string, ReactNode> = {
   'TRANSFERÊNCIA': <BiTransfer />
 }
 
-export default function timelineFormatter(registers: IPoultryRegister[], poultry: IPoultry) {
+export default function timelineFormatter(registers: IPoultryRegister[], poultry: Partial<IPoultry>) {
   const birthDateRegister = {
     key: 'BIRTH_DATE',
     description: 'Primeiro registro do animal',
-    date: poultry.birthDate,
+    date: poultry?.birthDate ?? new Date(),
     icon: <BsFillEggFill />
   }
 
