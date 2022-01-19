@@ -14,12 +14,12 @@ import dateFormatter from '../../formatters/dateFormatter'
 
 import {
   StyledContainer,
-  StyledTitle,
+  StyledHeaderText,
+  StyledHeader,
   StyledInfoItem,
   StyledInfoKey,
   StyledInfoList,
   StyledInfoValue,
-  StyledDescription,
   StyledVideoContainer,
   StyledVideoTitle,
   StyledGalleryContainer,
@@ -157,11 +157,10 @@ const Poultry: FC<PoultryProps> = ({
         )}
       </Modal>
 
-      <StyledTitle>{poultry.name}</StyledTitle>
-
-      <StyledDescription>
-        {poultry.description}
-      </StyledDescription>
+      <StyledHeader>
+        <StyledHeaderText>{poultry.name}</StyledHeaderText>
+        <StyledHeaderText>ABC-123</StyledHeaderText>
+      </StyledHeader>
 
       {poultry.videos?.presentation && (
         <StyledVideoContainer>
