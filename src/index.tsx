@@ -2,7 +2,7 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import { IAdvertising, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
 
-import Poultry from './views/Poultry/Poultry';
+import Poultry from './components/Poultry/Poultry';
 
 (window as any).renderPoultryPage = (
   containerId: string,
