@@ -1,5 +1,5 @@
 import styled from 'styled-components'
-import { MAIN_FONT, Colors, createMinWidthMediaQuery } from '@cig-platform/ui'
+import { MAIN_FONT, Colors, createMinWidthMediaQuery, DEFAULT_BORDER_RADIUS } from '@cig-platform/ui'
 
 export const StyledContainer = styled.main`
   width: 100%;
@@ -30,33 +30,57 @@ export const StyledHeaderText = styled.p`
   }
 `
 
+export const StyledDescriptionTitle = styled.p`
+  text-align: center;
+  font-weight: bold;
+  font-size: 2em;
+  margin: 35px 0 0;
+`
+
+export const StyledDescription = styled.p`
+  text-align: center;
+  max-width: 800px;
+
+  ${createMinWidthMediaQuery(`
+    margin: 0 auto;
+    padding-bottom: 35px;
+    padding-top: 15px;
+  `)}
+`
+
 export const StyledInfoList = styled.ul`
   margin: 0;
   padding: 0;
   list-style: none;
   display: flex;
-  flex-direction: column;
   width: 100%;
-  color: ${Colors.DarkGrey};
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 800px;
 
   ${createMinWidthMediaQuery(`
     margin: 0 auto;
-    width: 50%;
   `)}
 `
 
 export const StyledInfoItem = styled.li`
-  display: flex;
-  justify-content: space-between;
-  margin-bottom: 8px;
-`
-
-export const StyledInfoKey = styled.div`
+  width: calc(50% - 5px);
+  height: 70px;
   font-weight: bold;
 `
 
+export const StyledInfoKey = styled.p`
+  background-color: ${Colors.DarkBlue};
+  color: ${Colors.White};
+  border-radius: ${DEFAULT_BORDER_RADIUS};
+  padding: 4px 10px;
+  display: inline-block;
+  font-size: 15px;
+  margin: 0 0 10px;
+`
+
 export const StyledInfoValue = styled.div`
-  font-weight: light;
+  font-size: 15px;
 `
 
 export const StyledVideoContainer = styled.div`
