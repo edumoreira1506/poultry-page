@@ -162,6 +162,15 @@ const Poultry: FC<PoultryProps> = ({
         <StyledHeaderText>ABC-123</StyledHeaderText>
       </StyledHeader>
 
+      {Boolean(images.length) && (
+        <StyledGalleryContainer>
+          <ImageGallery
+            items={formattedImagesOfGallery}
+            showPlayButton={false}
+          />
+        </StyledGalleryContainer>
+      )}
+
       {poultry.videos?.presentation && (
         <StyledVideoContainer>
           <StyledVideoTitle>Vídeo de apresentação</StyledVideoTitle>
@@ -181,15 +190,6 @@ const Poultry: FC<PoultryProps> = ({
           <StyledVideoTitle>Vídeo de medição</StyledVideoTitle>
           <ReactPlayer url={poultry.videos?.measurement} />
         </StyledVideoContainer>
-      )}
-
-      {Boolean(images.length) && (
-        <StyledGalleryContainer>
-          <ImageGallery
-            items={formattedImagesOfGallery}
-            showPlayButton={false}
-          />
-        </StyledGalleryContainer>
       )}
 
       {Boolean(formattedTimelineItems.length) && (

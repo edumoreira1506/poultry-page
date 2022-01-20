@@ -19,11 +19,28 @@ Example.args = {
       presentation: 'https://www.youtube.com/watch?v=Hh9vXojYq9A'
     }
   }),
-  images: Array(10).fill({
-    imageUrl: '1634766823222-c4f8a3c6-713d-45f0-a492-49643cf32ed6.jpeg',
-    id: '',
-    poultryId: ''
-  }),
+  images: [
+    {
+      imageUrl: '1634766823222-c4f8a3c6-713d-45f0-a492-49643cf32ed6.jpeg',
+      id: '',
+      poultryId: ''
+    },
+    {
+      imageUrl: '1636412705405-2021-11-06_21-22.png',
+      id: '',
+      poultryId: ''
+    },
+    {
+      imageUrl: '1640124345946-13_do_tamanho_de_uma_crianca___galo_tem_1_26m__recorde_nacional_e_mundial___divulgacao-743758.jpg',
+      id: '',
+      poultryId: ''
+    },
+    {
+      imageUrl: '1642550732608-matte-circulo.jpg',
+      id: '',
+      poultryId: ''
+    }
+  ],
   registers: [
     {
       id: '714f3278-5bb1-4e3f-bd30-9acba448fb2d',
