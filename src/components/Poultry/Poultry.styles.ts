@@ -93,11 +93,12 @@ export const StyledVideoContainer = styled.div`
   & > div {
     width: 100% !important;
     height: 200px !important;
+    border-radius: ${DEFAULT_BORDER_RADIUS};
+    overflow: hidden;
+    max-width: 800px;
 
     ${createMinWidthMediaQuery(`
-      width: 50% !important;
       height: 400px !important;
-      max-width: 1280px;
       margin: 0 auto;
     `)}
   }
@@ -106,7 +107,10 @@ export const StyledVideoContainer = styled.div`
 export const StyledVideoTitle = styled.p`
   font-weight: bold;
   font-size: 1.2em;
-  color: ${Colors.DarkGrey};
+  color: ${Colors.Black};
+  text-align: left;
+  width: 100%;
+  max-width: 800px;
 `
 
 export const StyledGalleryContainer = styled.div`
