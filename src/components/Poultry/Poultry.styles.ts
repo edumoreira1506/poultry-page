@@ -188,6 +188,7 @@ export const StyledTableTitle = styled.p`
 export const StyledTable = styled.div`
   margin-bottom: 15px;
   max-width: 800px;
+  width: 100%;
 
   ${createMinWidthMediaQuery(`
     margin: 0 auto;
