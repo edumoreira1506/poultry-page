@@ -169,16 +169,19 @@ export const StyledPrice = styled.p`
 `
 
 export const StyledTableTitle = styled.p`
-  text-align: center;
+  text-align: left;
   font-weight: 600;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
   font-size: 1.5em;
 `
 
 export const StyledTable = styled.div`
   margin-bottom: 15px;
+  max-width: 800px;
 
   ${createMinWidthMediaQuery(`
-    width: 500px;
     margin: 0 auto;
     padding-bottom: 15px;
   `)}
