@@ -308,7 +308,7 @@ const Poultry: FC<PoultryProps> = ({
 
       {Boolean(formattedTimelineItems.length) && (
         <StyledTimeline>
-          <StyledTimelineTitle>Registros do animal</StyledTimelineTitle>
+          <StyledTimelineTitle>Histórico</StyledTimelineTitle>
           <Timeline items={formattedTimelineItems} onExpandItem={handleExpandTimelineItem} />
         </StyledTimeline>
       )}
