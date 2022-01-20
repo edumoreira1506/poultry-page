@@ -13,12 +13,15 @@ const Template: ComponentStory<typeof Poultry> = (args) => <Poultry {...args} />
 
 export const Example = Template.bind({})
 Example.args = {
-  poultry: poultryFactory({
-    videos: {
-      measurement: 'https://www.youtube.com/watch?v=Hh9vXojYq9A',
-      presentation: 'https://www.youtube.com/watch?v=Hh9vXojYq9A'
-    }
-  }),
+  poultry: {
+    ...poultryFactory({
+      videos: {
+        measurement: 'https://www.youtube.com/watch?v=Hh9vXojYq9A',
+        presentation: 'https://www.youtube.com/watch?v=Hh9vXojYq9A'
+      }
+    }),
+    code: 'ABCD-123'
+  },
   images: [
     {
       imageUrl: '1634766823222-c4f8a3c6-713d-45f0-a492-49643cf32ed6.jpeg',

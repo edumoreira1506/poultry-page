@@ -6,6 +6,7 @@ import ContentSearchClient from '../clients/ContentSearchClient'
 interface Data {
   poultry: IPoultry & {
     images: IPoultryImage[];
+    code: string;
   };
   registers: IPoultryRegister[];
   advertisings: IAdvertising[];

@@ -36,7 +36,7 @@ import {
 } from './Poultry.styles'
 
 interface PoultryProps {
-  poultry: Partial<IPoultry>;
+  poultry: Partial<IPoultry> & { code?: string; };
   images: IPoultryImage[];
   registers?: IPoultryRegister[];
   advertising?: IAdvertising;
@@ -161,7 +161,7 @@ const Poultry: FC<PoultryProps> = ({
 
       <StyledHeader>
         <StyledHeaderText>{poultry.name}</StyledHeaderText>
-        <StyledHeaderText>ABC-123</StyledHeaderText>
+        <StyledHeaderText>{poultry.code}</StyledHeaderText>
       </StyledHeader>
 
       {Boolean(images.length) && (
