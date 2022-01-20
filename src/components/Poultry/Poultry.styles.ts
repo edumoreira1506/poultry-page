@@ -5,6 +5,8 @@ export const StyledContainer = styled.main`
   width: 100%;
   height: 100%;
   font-family: ${MAIN_FONT};
+  display: flex;
+  flex-direction: column;
 `
 
 export const StyledHeader = styled.div`
@@ -165,7 +167,13 @@ export const StyledBirhDateText = styled.p`
 `
 
 export const StyledPrice = styled.p`
-  text-align: center;
+  display: inline-block;
+  margin: 0 auto;
+  background-color: ${Colors.DarkBlue};
+  padding: 10px 15px;
+  border-radius: ${DEFAULT_BORDER_RADIUS};
+  color: ${Colors.White};
+  font-weight: bold;
 `
 
 export const StyledTableTitle = styled.p`

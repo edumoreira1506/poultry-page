@@ -340,7 +340,7 @@ const Poultry: FC<PoultryProps> = ({
       )}
 
       {advertising && (
-        <StyledPrice>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(advertising.price / 100)}</StyledPrice>
+        <StyledPrice>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(advertising.price / 100)} à vista</StyledPrice>
       )}
     </StyledContainer>
   )
