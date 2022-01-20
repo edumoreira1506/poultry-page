@@ -1502,14 +1502,14 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cig-platform/content-search-client@^0.0.6":
-  version "0.0.6"
-  resolved "https://registry.yarnpkg.com/@cig-platform/content-search-client/-/content-search-client-0.0.6.tgz#ccb60d9379b9b5e3bed098abc3734ffda47fcd7a"
-  integrity sha512-bmn46ejaV1bHmcy2biazF+7sk1gTT5eAY3vbz+p4K8OOWMr37jxRusUW0aGFajjLT4hwVG04MgbKwD1nI/iAUA==
+"@cig-platform/content-search-client@^0.0.7":
+  version "0.0.7"
+  resolved "https://registry.yarnpkg.com/@cig-platform/content-search-client/-/content-search-client-0.0.7.tgz#8f663234158365f9183ff7be38e5ab070a98881a"
+  integrity sha512-rkDaV+MtIyLEzU2fjuMaGSMxWhn9cNeUGFxLevuxTVvGHe6g+EtLNpJXr5zcVL32g/oLYRNQCLzpink2/sUaTQ==
   dependencies:
     "@babel/plugin-proposal-decorators" "^7.16.4"
     "@cig-platform/decorators" "^0.0.1"
-    "@cig-platform/types" "^0.0.20"
+    "@cig-platform/types" "^0.0.21"
     axios "^0.24.0"
 
 "@cig-platform/decorators@^0.0.1":
@@ -1538,13 +1538,6 @@
   version "0.0.14"
   resolved "https://registry.yarnpkg.com/@cig-platform/types/-/types-0.0.14.tgz#0ff5cf055a97da735b32ec4703f2f813306c063b"
   integrity sha512-BLPzdGqZuDJWRjh/3jtHS1M6dMGJyKRZobnNhsSCbh/ZdnzYB1fKxGxsevXMe4ikQGlhSd60+T1zPsKHMJT+CQ==
-  dependencies:
-    express "^4.17.1"
-
-"@cig-platform/types@^0.0.20":
-  version "0.0.20"
-  resolved "https://registry.yarnpkg.com/@cig-platform/types/-/types-0.0.20.tgz#b55518ef8cd49f747073538e8bc6acda3ce1e761"
-  integrity sha512-RXW3wjljO2SQiUEvsmUeAb5rmtKZBwtKTLiVKgl7DxJ539U2njvu2jqVd8KL5SM4xIRJtP/LZ1KsMr6HXqw06Q==
   dependencies:
     express "^4.17.1"
 
