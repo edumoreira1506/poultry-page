@@ -184,6 +184,107 @@ const Poultry: FC<PoultryProps> = ({
         </>
       )}
 
+      <StyledInfoList>
+        {poultry?.type && (
+          <StyledInfoItem>
+            <StyledInfoKey>
+            Raça
+            </StyledInfoKey>
+            <StyledInfoValue>
+              {poultry.type}
+            </StyledInfoValue>
+          </StyledInfoItem>
+        )}        
+
+        {poultry?.birthDate && (
+          <StyledInfoItem>
+            <StyledInfoKey>
+            Data de nascimento
+            </StyledInfoKey>
+            <StyledInfoValue>
+              {poultry?.birthDate?.toLocaleDateString('pt-BR', {timeZone: 'UTC'})}
+            </StyledInfoValue>
+          </StyledInfoItem>
+        )}
+
+        {poultry?.colors?.plumage && (
+          <StyledInfoItem>
+            <StyledInfoKey>
+            Cor da plumagem
+            </StyledInfoKey>
+            <StyledInfoValue>
+              {getColor(poultry?.colors?.plumage)}
+            </StyledInfoValue>
+          </StyledInfoItem>
+        )}
+
+        {poultry?.colors?.eyes && (
+          <StyledInfoItem>
+            <StyledInfoKey>
+   Cor dos olhos
+            </StyledInfoKey>
+            <StyledInfoValue>
+              {getColor(poultry?.colors?.eyes)}
+            </StyledInfoValue>
+          </StyledInfoItem>
+        )}
+
+        {poultry?.colors?.shins && (
+          <StyledInfoItem>
+            <StyledInfoKey>
+            Cor das canelas
+            </StyledInfoKey>
+            <StyledInfoValue>
+              {getColor(poultry?.colors?.shins)}
+            </StyledInfoValue>
+          </StyledInfoItem>
+        )}
+
+        {poultry?.tail && (
+          <StyledInfoItem>
+            <StyledInfoKey>
+            Rabo
+            </StyledInfoKey>
+            <StyledInfoValue>
+              {poultry.tail}
+            </StyledInfoValue>
+          </StyledInfoItem>
+        )}
+
+        {poultry?.crest && (
+          <StyledInfoItem>
+            <StyledInfoKey>
+              Crista
+            </StyledInfoKey>
+            <StyledInfoValue>
+              {poultry.crest}
+            </StyledInfoValue>
+          </StyledInfoItem>
+        )}
+
+        {poultry?.dewlap && (
+          <StyledInfoItem>
+            <StyledInfoKey>
+            Barbela
+            </StyledInfoKey>
+            <StyledInfoValue>
+              {poultry.dewlap}
+            </StyledInfoValue>
+          </StyledInfoItem>
+        )}
+
+        {poultry?.gender && (
+          <StyledInfoItem>
+            <StyledInfoKey>
+            Sexagem
+            </StyledInfoKey>
+            <StyledInfoValue>
+              {poultry.gender}
+            </StyledInfoValue>
+          </StyledInfoItem>
+        )}
+      </StyledInfoList>
+
       {poultry.videos?.presentation && (
         <StyledVideoContainer>
           <StyledVideoTitle>Vídeo de apresentação</StyledVideoTitle>
@@ -237,89 +338,6 @@ const Poultry: FC<PoultryProps> = ({
           </StyledTable>
         </>
       )}
-
-      <StyledInfoList>
-        <StyledInfoItem>
-          <StyledInfoKey>
-            Raça
-          </StyledInfoKey>
-          <StyledInfoValue>
-            {poultry.type}
-          </StyledInfoValue>
-        </StyledInfoItem>
-
-        <StyledInfoItem>
-          <StyledInfoKey>
-            Data de nascimento
-          </StyledInfoKey>
-          <StyledInfoValue>
-            {poultry?.birthDate?.toLocaleDateString('pt-BR', {timeZone: 'UTC'})}
-          </StyledInfoValue>
-        </StyledInfoItem>
-
-        <StyledInfoItem>
-          <StyledInfoKey>
-            Cor da plumagem
-          </StyledInfoKey>
-          <StyledInfoValue>
-            {getColor(poultry?.colors?.plumage)}
-          </StyledInfoValue>
-        </StyledInfoItem>
-
-        <StyledInfoItem>
-          <StyledInfoKey>
-            Cor dos olhos
-          </StyledInfoKey>
-          <StyledInfoValue>
-            {getColor(poultry?.colors?.eyes)}
-          </StyledInfoValue>
-        </StyledInfoItem>
-
-        <StyledInfoItem>
-          <StyledInfoKey>
-            Cor das canelas
-          </StyledInfoKey>
-          <StyledInfoValue>
-            {getColor(poultry?.colors?.shins)}
-          </StyledInfoValue>
-        </StyledInfoItem>
-
-        <StyledInfoItem>
-          <StyledInfoKey>
-            Rabo
-          </StyledInfoKey>
-          <StyledInfoValue>
-            {poultry.tail}
-          </StyledInfoValue>
-        </StyledInfoItem>
-
-        <StyledInfoItem>
-          <StyledInfoKey>
-            Crista
-          </StyledInfoKey>
-          <StyledInfoValue>
-            {poultry.crest}
-          </StyledInfoValue>
-        </StyledInfoItem>
-
-        <StyledInfoItem>
-          <StyledInfoKey>
-            Barbela
-          </StyledInfoKey>
-          <StyledInfoValue>
-            {poultry.dewlap}
-          </StyledInfoValue>
-        </StyledInfoItem>
-
-        <StyledInfoItem>
-          <StyledInfoKey>
-            Sexagem
-          </StyledInfoKey>
-          <StyledInfoValue>
-            {poultry.gender}
-          </StyledInfoValue>
-        </StyledInfoItem>
-      </StyledInfoList>
 
       {advertising && (
         <StyledPrice>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(advertising.price / 100)}</StyledPrice>
