@@ -30,7 +30,9 @@ import {
   StyledPrice,
   StyledTable,
   StyledTableTitle,
-  StyledTableModal
+  StyledTableModal,
+  StyledDescription,
+  StyledDescriptionTitle
 } from './Poultry.styles'
 
 interface PoultryProps {
@@ -169,6 +171,17 @@ const Poultry: FC<PoultryProps> = ({
             showPlayButton={false}
           />
         </StyledGalleryContainer>
+      )}
+
+      {poultry?.description && (
+        <>
+          <StyledDescriptionTitle>
+          Descrição
+          </StyledDescriptionTitle>
+          <StyledDescription>
+            {poultry.description}
+          </StyledDescription>
+        </>
       )}
 
       {poultry.videos?.presentation && (

@@ -30,6 +30,23 @@ export const StyledHeaderText = styled.p`
   }
 `
 
+export const StyledDescriptionTitle = styled.p`
+  text-align: center;
+  font-weight: bold;
+  font-size: 2em;
+  margin: 35px 0 0;
+`
+
+export const StyledDescription = styled.p`
+  text-align: center;
+  max-width: 800px;
+
+  ${createMinWidthMediaQuery(`
+    margin: 0 auto;
+    padding-top: 15px;
+  `)}
+`
+
 export const StyledInfoList = styled.ul`
   margin: 0;
   padding: 0;
