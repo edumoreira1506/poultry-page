@@ -128,8 +128,13 @@ export const StyledTimeline = styled.div`
 
 export const StyledTimelineTitle = styled.p`
   font-family: ${MAIN_FONT};
-  text-align: center;
-  color: ${Colors.DarkGrey};
+  text-align: left;
+  color: ${Colors.Black};
+  font-weight: bold;
+  font-size: 1.5em;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 20px 0;
 `
 
 export const StyledBirthDate = styled.div`
