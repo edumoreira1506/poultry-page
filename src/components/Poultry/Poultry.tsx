@@ -1,10 +1,12 @@
 import React, { FC, useCallback, useMemo, useState } from 'react'
 import ReactPlayer from 'react-player'
-import { ImageGallery, Timeline, Modal, Table } from '@cig-platform/ui'
+import { ImageGallery, Timeline, Modal, Table, LinksBar } from '@cig-platform/ui'
 import { IAdvertising, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
 import { BsFillEggFill, BsFillMegaphoneFill } from 'react-icons/bs'
 import { AiOutlineRollback } from 'react-icons/ai'
 import { BiTransfer } from 'react-icons/bi'
+import { BsShareFill } from 'react-icons/bs'
+import copy from 'copy-to-clipboard'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
 
@@ -34,12 +36,14 @@ import {
   StyledDescription,
   StyledDescriptionTitle
 } from './Poultry.styles'
+import { MARKETPLACE_URL } from '../../constants/url'
 
 interface PoultryProps {
   poultry: Partial<IPoultry> & { code?: string; };
   images: IPoultryImage[];
   registers?: IPoultryRegister[];
   advertising?: IAdvertising;
+  breederId?: string;
 }
 
 const COLORS: Record<string, string> = {
@@ -57,7 +61,8 @@ const Poultry: FC<PoultryProps> = ({
   poultry,
   images,
   registers = [],
-  advertising
+  advertising,
+  breederId
 }: PoultryProps) => {
   const [selectedRegister, setSelectedRegister] = useState<Partial<IPoultryRegister>>()
 
@@ -78,6 +83,31 @@ const Poultry: FC<PoultryProps> = ({
     setSelectedRegister(register)
   }, [registers])
 
+  const handleSharePoultry = useCallback(async () => {
+    const url = `${MARKETPLACE_URL}/breeders/${breederId}/poultries/${poultry?.id}`
+
+    if (navigator.share) {
+      const shareDetails = { url, title: poultry.name, text: url }
+      
+      try {
+        await navigator.share(shareDetails)
+      } catch (error) {
+        console.error(error)
+      }
+    } else {
+      copy(url)
+
+      alert('Link copiado com sucesso!')
+    }
+  }, [breederId, poultry])
+  
+  const items = useMemo(() => ([
+    {
+      onClick: handleSharePoultry,
+      children: <BsShareFill />
+    }
+  ]), [handleSharePoultry])
+
   const handleCloseRegisterModal = useCallback(() => {
     setSelectedRegister(undefined)
   }, [])
@@ -94,6 +124,8 @@ const Poultry: FC<PoultryProps> = ({
 
   return (
     <StyledContainer>
+      <LinksBar items={items} />
+      
       <Modal isOpen={Boolean(selectedRegister)} onClose={handleCloseRegisterModal}>
         {selectedRegister?.type === 'IMAGENS' && (
           <ImageGallery
