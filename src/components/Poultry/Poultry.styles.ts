@@ -83,6 +83,7 @@ export const StyledInfoKey = styled.p`
 
 export const StyledInfoValue = styled.div`
   font-size: 15px;
+  padding-left: 5px;
 `
 
 export const StyledVideoContainer = styled.div`
