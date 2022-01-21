@@ -30,6 +30,7 @@ const PoultryContainer: FC<PoultryContainerProps> = ({ breederId, poultryId }: P
       poultry={poultry}
       registers={registers}
       advertising={data?.advertisings?.[0]}
+      breederId={breederId}
     />
   )
 }
