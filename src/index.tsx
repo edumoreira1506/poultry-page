@@ -14,8 +14,7 @@ type Callbacks = {
 
 (window as any).renderPoultryPage = (
   containerId: string,
-  breederId: string,
-  poultryId: string,
+  { breederId, poultryId }: { breederId: string; poultryId: string; },
   { onEditAdvertising, onSeeConfig }: Callbacks = {}
 ) => {
   const targetDocument = document.getElementById(containerId)
