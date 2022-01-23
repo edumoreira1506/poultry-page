@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { MAIN_FONT, Colors, createMinWidthMediaQuery, DEFAULT_BORDER_RADIUS } from '@cig-platform/ui'
 
 export const StyledContainer = styled.main`
@@ -93,6 +93,7 @@ export const StyledVideoContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
+  width: 100%;
 
   & > div {
     width: 100% !important;
@@ -128,6 +129,7 @@ export const StyledGalleryContainer = styled.div`
 
 export const StyledTimeline = styled.div`
   margin: 10px 0;
+  width: 100%;
 `
 
 export const StyledTimelineTitle = styled.p`
@@ -176,6 +178,12 @@ export const StyledPriceContainer = styled.div`
   margin-top: 20px;
   width: 100%;
   max-width: 400px;
+  z-index: 5;
+
+  ${({ isFixed }: { isFixed: boolean }) => isFixed && css`
+    position: fixed;
+    bottom: -65px;
+  `}
 `
 
 export const StyledPriceDetails = styled.div`

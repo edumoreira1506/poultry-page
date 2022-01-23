@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useMemo, useState } from 'react'
+import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import ReactPlayer from 'react-player'
 import { ImageGallery, Timeline, Modal, Table, LinksBar, Button } from '@cig-platform/ui'
 import { IAdvertising, IBreederContact, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
@@ -69,6 +69,8 @@ const Poultry: FC<PoultryProps> = ({
   breederId,
   contacts = []
 }: PoultryProps) => {
+  const [isPriceFixed, setIsPriceFixed] = useState(true)
+
   const [selectedRegister, setSelectedRegister] = useState<Partial<IPoultryRegister>>()
 
   const formattedImagesOfGallery = useMemo(() => images.map(i => imageFormatter(i.imageUrl)), [images])
@@ -77,6 +79,20 @@ const Poultry: FC<PoultryProps> = ({
 
   const vaccines = useMemo(() => registers?.filter(({ type }) => type === 'VACINAÇÃO') ?? [], [registers])
   const measurementsAndWeighint = useMemo(() => registers?.filter(({ type }) => type === 'MEDIÇÃO E PESAGEM') ?? [], [registers])
+
+  const handleScrollWindow = useCallback(() => {
+    const isScrolledToBottom = (window.innerHeight + Math.ceil(window.pageYOffset)) >= document.body.offsetHeight - 140
+   
+    if (isScrolledToBottom && isPriceFixed) {
+      setIsPriceFixed(false)
+      return
+    }
+
+    if (!isScrolledToBottom && !isPriceFixed) {
+      setIsPriceFixed(true)
+      return
+    }
+  }, [isPriceFixed])
 
   const handleExpandTimelineItem = useCallback((key: string) => {
     if (key === 'BIRTH_DATE') setSelectedRegister({ type: 'BIRTH_DATE' })
@@ -138,6 +154,12 @@ const Poultry: FC<PoultryProps> = ({
     items: [dateFormatter(String(register.date)), `${register?.metadata?.weight} KG`, `${register?.metadata?.measurement} CM`],
     expandedContent: register.description
   })).reverse(), [measurementsAndWeighint])
+
+  useEffect(() => {
+    document.addEventListener('scroll', handleScrollWindow)
+
+    return () => document.removeEventListener('scroll', handleScrollWindow)
+  }, [handleScrollWindow])
 
   return (
     <StyledContainer>
@@ -389,7 +411,7 @@ const Poultry: FC<PoultryProps> = ({
       )}
 
       {advertising && (
-        <StyledPriceContainer>
+        <StyledPriceContainer isFixed={isPriceFixed}>
           <StyledPrice>
             {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(advertising.price / 100)} à Vista
           </StyledPrice>
