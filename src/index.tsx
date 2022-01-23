@@ -1,18 +1,28 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import { QueryClient, QueryClientProvider } from 'react-query'
+import { PoultryProps } from './components/Poultry/Poultry'
 
 import PoultryContainer from './containers/PoultryContainer/PoultryContainer'
 
-const queryClient = new QueryClient();
+const queryClient = new QueryClient()
 
-(window as any).renderPoultryPage = (containerId: string, breederId: string, poultryId: string) => {
+type Callbacks = {
+  onEditAdvertising?: PoultryProps['onEditAdvertising']
+}
+
+(window as any).renderPoultryPage = (
+  containerId: string,
+  breederId: string,
+  poultryId: string,
+  { onEditAdvertising }: Callbacks = {}
+) => {
   const targetDocument = document.getElementById(containerId)
 
   if (targetDocument) {
     ReactDOM.render(
       <QueryClientProvider client={queryClient}>
-        <PoultryContainer poultryId={poultryId} breederId={breederId} />
+        <PoultryContainer onEditAdvertising={onEditAdvertising} poultryId={poultryId} breederId={breederId} />
       </QueryClientProvider>,
       targetDocument,
     )

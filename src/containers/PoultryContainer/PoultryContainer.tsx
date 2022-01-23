@@ -1,15 +1,20 @@
 import React, { FC, useMemo } from 'react'
 
-import Poultry from '../../components/Poultry/Poultry'
+import Poultry, { PoultryProps } from '../../components/Poultry/Poultry'
 import useData from '../../hooks/useData'
 import stringToDate from '../../utils/stringToDate'
 
 export interface PoultryContainerProps {
   breederId: string;
   poultryId: string;
+  onEditAdvertising?: PoultryProps['onEditAdvertising']
 }
 
-const PoultryContainer: FC<PoultryContainerProps> = ({ breederId, poultryId }: PoultryContainerProps) => {
+const PoultryContainer: FC<PoultryContainerProps> = ({
+  breederId,
+  poultryId,
+  onEditAdvertising
+}: PoultryContainerProps) => {
   const { data, isLoading } = useData(breederId, poultryId)
 
   const poultry = useMemo(() => ({
@@ -32,6 +37,7 @@ const PoultryContainer: FC<PoultryContainerProps> = ({ breederId, poultryId }: P
       advertising={data?.advertisings?.[0]}
       breederId={breederId}
       contacts={data?.whatsAppContacts}
+      onEditAdvertising={onEditAdvertising}
     />
   )
 }
