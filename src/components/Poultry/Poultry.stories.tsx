@@ -118,5 +118,6 @@ Example.args = {
     price: 1500,
     id: 'id',
     externalId: 'externalId'
-  }
+  },
+  breederId: 'Algum breeder id'
 }

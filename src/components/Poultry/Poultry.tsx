@@ -3,7 +3,7 @@ import ReactPlayer from 'react-player'
 import { ImageGallery, Timeline, Modal, Table, LinksBar, Button } from '@cig-platform/ui'
 import { IAdvertising, IBreederContact, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
 import { BsFillEggFill, BsFillMegaphoneFill } from 'react-icons/bs'
-import { AiOutlineRollback } from 'react-icons/ai'
+import { AiOutlineRollback, AiFillEdit } from 'react-icons/ai'
 import { BiTransfer } from 'react-icons/bi'
 import { BsShareFill } from 'react-icons/bs'
 import copy from 'copy-to-clipboard'
@@ -48,6 +48,7 @@ interface PoultryProps {
   advertising?: IAdvertising;
   breederId?: string;
   contacts?: IBreederContact[];
+  onEditAdvertising?: ({ breederId, advertisingId, poultryId }: { breederId: string; poultryId: string; advertisingId: string; }) => void;
 }
 
 const COLORS: Record<string, string> = {
@@ -67,7 +68,8 @@ const Poultry: FC<PoultryProps> = ({
   registers = [],
   advertising,
   breederId,
-  contacts = []
+  contacts = [],
+  onEditAdvertising
 }: PoultryProps) => {
   const [isPriceFixed, setIsPriceFixed] = useState(true)
 
@@ -79,6 +81,14 @@ const Poultry: FC<PoultryProps> = ({
 
   const vaccines = useMemo(() => registers?.filter(({ type }) => type === 'VACINAÇÃO') ?? [], [registers])
   const measurementsAndWeighint = useMemo(() => registers?.filter(({ type }) => type === 'MEDIÇÃO E PESAGEM') ?? [], [registers])
+
+  const handleEditAdvertising = useCallback(() => {
+    if (!advertising || !poultry?.id || !breederId || !onEditAdvertising) return
+
+    const advertisingId = advertising?.id
+    
+    onEditAdvertising({ poultryId: poultry.id, breederId, advertisingId })
+  }, [onEditAdvertising, poultry, breederId, advertising])
 
   const handleScrollWindow = useCallback(() => {
     const isScrolledToBottom = (window.innerHeight + Math.ceil(window.pageYOffset)) >= document.body.offsetHeight - 140
@@ -134,12 +144,16 @@ const Poultry: FC<PoultryProps> = ({
     }
   }, [contacts])
   
-  const items = useMemo(() => ([
+  const items = useMemo<any>(() => ([
     {
       onClick: handleSharePoultry,
       children: <BsShareFill />
+    },
+    advertising && {
+      onClick: handleEditAdvertising,
+      children: <AiFillEdit />
     }
-  ]), [handleSharePoultry])
+  ].filter(Boolean)), [handleSharePoultry])
 
   const handleCloseRegisterModal = useCallback(() => {
     setSelectedRegister(undefined)
