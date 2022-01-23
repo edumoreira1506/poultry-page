@@ -242,7 +242,7 @@ const Poultry: FC<PoultryProps> = ({
         {poultry?.colors?.plumage && (
           <StyledInfoItem>
             <StyledInfoKey>
-            Cor da plumagem
+              Cor da plumagem
             </StyledInfoKey>
             <StyledInfoValue>
               {getColor(poultry?.colors?.plumage)}
@@ -253,7 +253,7 @@ const Poultry: FC<PoultryProps> = ({
         {poultry?.colors?.eyes && (
           <StyledInfoItem>
             <StyledInfoKey>
-   Cor dos olhos
+              Cor dos olhos
             </StyledInfoKey>
             <StyledInfoValue>
               {getColor(poultry?.colors?.eyes)}
@@ -297,7 +297,7 @@ const Poultry: FC<PoultryProps> = ({
         {poultry?.dewlap && (
           <StyledInfoItem>
             <StyledInfoKey>
-            Barbela
+              Barbela
             </StyledInfoKey>
             <StyledInfoValue>
               {poultry.dewlap}
