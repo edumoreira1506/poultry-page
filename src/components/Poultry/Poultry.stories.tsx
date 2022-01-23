@@ -119,5 +119,6 @@ Example.args = {
     id: 'id',
     externalId: 'externalId'
   },
-  breederId: 'Algum breeder id'
+  breederId: 'Algum breeder id',
+  onSeeConfig: () => alert('onSeeConfig')
 }

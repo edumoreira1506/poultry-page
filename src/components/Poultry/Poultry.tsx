@@ -5,7 +5,7 @@ import { IAdvertising, IBreederContact, IPoultry, IPoultryImage, IPoultryRegiste
 import { BsFillEggFill, BsFillMegaphoneFill } from 'react-icons/bs'
 import { AiOutlineRollback, AiFillEdit } from 'react-icons/ai'
 import { BiTransfer } from 'react-icons/bi'
-import { BsShareFill } from 'react-icons/bs'
+import { BsShareFill, BsFillGearFill } from 'react-icons/bs'
 import copy from 'copy-to-clipboard'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
@@ -49,6 +49,7 @@ export interface PoultryProps {
   breederId?: string;
   contacts?: IBreederContact[];
   onEditAdvertising?: ({ breederId, advertisingId, poultryId }: { breederId: string; poultryId: string; advertisingId: string; }) => void;
+  onSeeConfig?: () => void;
 }
 
 const COLORS: Record<string, string> = {
@@ -69,7 +70,8 @@ const Poultry: FC<PoultryProps> = ({
   advertising,
   breederId,
   contacts = [],
-  onEditAdvertising
+  onEditAdvertising,
+  onSeeConfig
 }: PoultryProps) => {
   const [isPriceFixed, setIsPriceFixed] = useState(true)
 
@@ -152,8 +154,12 @@ const Poultry: FC<PoultryProps> = ({
     advertising && {
       onClick: handleEditAdvertising,
       children: <AiFillEdit />
+    },
+    onSeeConfig && {
+      onClick: onSeeConfig,
+      children: <BsFillGearFill />
     }
-  ].filter(Boolean)), [handleSharePoultry])
+  ].filter(Boolean)), [handleSharePoultry, advertising, onSeeConfig])
 
   const handleCloseRegisterModal = useCallback(() => {
     setSelectedRegister(undefined)
