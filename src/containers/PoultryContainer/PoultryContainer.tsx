@@ -7,13 +7,15 @@ import stringToDate from '../../utils/stringToDate'
 export interface PoultryContainerProps {
   breederId: string;
   poultryId: string;
-  onEditAdvertising?: PoultryProps['onEditAdvertising']
+  onEditAdvertising?: PoultryProps['onEditAdvertising'];
+  onSeeConfig?: PoultryProps['onSeeConfig'];
 }
 
 const PoultryContainer: FC<PoultryContainerProps> = ({
   breederId,
   poultryId,
-  onEditAdvertising
+  onEditAdvertising,
+  onSeeConfig
 }: PoultryContainerProps) => {
   const { data, isLoading } = useData(breederId, poultryId)
 
@@ -38,6 +40,7 @@ const PoultryContainer: FC<PoultryContainerProps> = ({
       breederId={breederId}
       contacts={data?.whatsAppContacts}
       onEditAdvertising={onEditAdvertising}
+      onSeeConfig={onSeeConfig}
     />
   )
 }

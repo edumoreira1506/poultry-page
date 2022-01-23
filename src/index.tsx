@@ -8,21 +8,27 @@ import PoultryContainer from './containers/PoultryContainer/PoultryContainer'
 const queryClient = new QueryClient()
 
 type Callbacks = {
-  onEditAdvertising?: PoultryProps['onEditAdvertising']
+  onEditAdvertising?: PoultryProps['onEditAdvertising'];
+  onSeeConfig?: PoultryProps['onSeeConfig'];
 }
 
 (window as any).renderPoultryPage = (
   containerId: string,
   breederId: string,
   poultryId: string,
-  { onEditAdvertising }: Callbacks = {}
+  { onEditAdvertising, onSeeConfig }: Callbacks = {}
 ) => {
   const targetDocument = document.getElementById(containerId)
 
   if (targetDocument) {
     ReactDOM.render(
       <QueryClientProvider client={queryClient}>
-        <PoultryContainer onEditAdvertising={onEditAdvertising} poultryId={poultryId} breederId={breederId} />
+        <PoultryContainer
+          onEditAdvertising={onEditAdvertising}
+          poultryId={poultryId}
+          breederId={breederId}
+          onSeeConfig={onSeeConfig}
+        />
       </QueryClientProvider>,
       targetDocument,
     )
