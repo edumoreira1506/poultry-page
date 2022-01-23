@@ -1,4 +1,4 @@
-import { IAdvertising, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
+import { IAdvertising, IBreederContact, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
 import { useQuery } from 'react-query'
 
 import ContentSearchClient from '../clients/ContentSearchClient'
@@ -12,6 +12,7 @@ interface Data {
   advertisings: IAdvertising[];
   vaccines: IPoultryRegister[];
   measurementAndWeigthing: IPoultryRegister[];
+  whatsAppContacts: IBreederContact[]
 }
 
 export default function useData(breederId: string, poultryId: string) {

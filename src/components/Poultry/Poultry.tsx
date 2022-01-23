@@ -1,7 +1,7 @@
-import React, { FC, useCallback, useMemo, useState } from 'react'
+import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import ReactPlayer from 'react-player'
-import { ImageGallery, Timeline, Modal, Table, LinksBar } from '@cig-platform/ui'
-import { IAdvertising, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
+import { ImageGallery, Timeline, Modal, Table, LinksBar, Button } from '@cig-platform/ui'
+import { IAdvertising, IBreederContact, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
 import { BsFillEggFill, BsFillMegaphoneFill } from 'react-icons/bs'
 import { AiOutlineRollback } from 'react-icons/ai'
 import { BiTransfer } from 'react-icons/bi'
@@ -34,7 +34,10 @@ import {
   StyledTableTitle,
   StyledTableModal,
   StyledDescription,
-  StyledDescriptionTitle
+  StyledDescriptionTitle,
+  StyledPriceContainer,
+  StyledPriceDetails,
+  StyledPriceButton
 } from './Poultry.styles'
 import { MARKETPLACE_URL } from '../../constants/url'
 
@@ -44,6 +47,7 @@ interface PoultryProps {
   registers?: IPoultryRegister[];
   advertising?: IAdvertising;
   breederId?: string;
+  contacts?: IBreederContact[];
 }
 
 const COLORS: Record<string, string> = {
@@ -62,8 +66,11 @@ const Poultry: FC<PoultryProps> = ({
   images,
   registers = [],
   advertising,
-  breederId
+  breederId,
+  contacts = []
 }: PoultryProps) => {
+  const [isPriceFixed, setIsPriceFixed] = useState(true)
+
   const [selectedRegister, setSelectedRegister] = useState<Partial<IPoultryRegister>>()
 
   const formattedImagesOfGallery = useMemo(() => images.map(i => imageFormatter(i.imageUrl)), [images])
@@ -72,6 +79,20 @@ const Poultry: FC<PoultryProps> = ({
 
   const vaccines = useMemo(() => registers?.filter(({ type }) => type === 'VACINAÇÃO') ?? [], [registers])
   const measurementsAndWeighint = useMemo(() => registers?.filter(({ type }) => type === 'MEDIÇÃO E PESAGEM') ?? [], [registers])
+
+  const handleScrollWindow = useCallback(() => {
+    const isScrolledToBottom = (window.innerHeight + Math.ceil(window.pageYOffset)) >= document.body.offsetHeight - 140
+   
+    if (isScrolledToBottom && isPriceFixed) {
+      setIsPriceFixed(false)
+      return
+    }
+
+    if (!isScrolledToBottom && !isPriceFixed) {
+      setIsPriceFixed(true)
+      return
+    }
+  }, [isPriceFixed])
 
   const handleExpandTimelineItem = useCallback((key: string) => {
     if (key === 'BIRTH_DATE') setSelectedRegister({ type: 'BIRTH_DATE' })
@@ -100,6 +121,18 @@ const Poultry: FC<PoultryProps> = ({
       alert('Link copiado com sucesso!')
     }
   }, [breederId, poultry])
+
+  const handleBuy = useCallback(() => {
+    alert('comprando!')
+  }, [])
+
+  const handleMessage = useCallback(() => {
+    const [whatsAppContact] = contacts
+
+    if (whatsAppContact) {
+      window.location.assign(`https://api.whatsapp.com/send?phone=55${whatsAppContact.value.replace(/\D/g, '')}`)
+    }
+  }, [contacts])
   
   const items = useMemo(() => ([
     {
@@ -121,6 +154,12 @@ const Poultry: FC<PoultryProps> = ({
     items: [dateFormatter(String(register.date)), `${register?.metadata?.weight} KG`, `${register?.metadata?.measurement} CM`],
     expandedContent: register.description
   })).reverse(), [measurementsAndWeighint])
+
+  useEffect(() => {
+    document.addEventListener('scroll', handleScrollWindow)
+
+    return () => document.removeEventListener('scroll', handleScrollWindow)
+  }, [handleScrollWindow])
 
   return (
     <StyledContainer>
@@ -242,7 +281,7 @@ const Poultry: FC<PoultryProps> = ({
         {poultry?.colors?.plumage && (
           <StyledInfoItem>
             <StyledInfoKey>
-            Cor da plumagem
+              Cor da plumagem
             </StyledInfoKey>
             <StyledInfoValue>
               {getColor(poultry?.colors?.plumage)}
@@ -253,7 +292,7 @@ const Poultry: FC<PoultryProps> = ({
         {poultry?.colors?.eyes && (
           <StyledInfoItem>
             <StyledInfoKey>
-   Cor dos olhos
+              Cor dos olhos
             </StyledInfoKey>
             <StyledInfoValue>
               {getColor(poultry?.colors?.eyes)}
@@ -297,7 +336,7 @@ const Poultry: FC<PoultryProps> = ({
         {poultry?.dewlap && (
           <StyledInfoItem>
             <StyledInfoKey>
-            Barbela
+              Barbela
             </StyledInfoKey>
             <StyledInfoValue>
               {poultry.dewlap}
@@ -372,7 +411,26 @@ const Poultry: FC<PoultryProps> = ({
       )}
 
       {advertising && (
-        <StyledPrice>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(advertising.price / 100)} à vista</StyledPrice>
+        <StyledPriceContainer isFixed={isPriceFixed}>
+          <StyledPrice>
+            {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(advertising.price / 100)} à Vista
+          </StyledPrice>
+          <StyledPriceDetails>
+            {Boolean(contacts.length) && (
+              <StyledPriceButton>
+                <Button onClick={handleMessage} type='button'>
+                  Mensagem
+                </Button>
+              </StyledPriceButton>
+            )}
+
+            <StyledPriceButton>
+              <Button onClick={handleBuy} type='button'>
+                Comprar
+              </Button>
+            </StyledPriceButton>
+          </StyledPriceDetails>
+        </StyledPriceContainer>
       )}
     </StyledContainer>
   )

@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled, { css } from 'styled-components'
 import { MAIN_FONT, Colors, createMinWidthMediaQuery, DEFAULT_BORDER_RADIUS } from '@cig-platform/ui'
 
 export const StyledContainer = styled.main`
@@ -7,6 +7,7 @@ export const StyledContainer = styled.main`
   font-family: ${MAIN_FONT};
   display: flex;
   flex-direction: column;
+  align-items: center;
 `
 
 export const StyledHeader = styled.div`
@@ -92,6 +93,7 @@ export const StyledVideoContainer = styled.div`
   align-items: center;
   justify-content: center;
   margin-bottom: 10px;
+  width: 100%;
 
   & > div {
     width: 100% !important;
@@ -127,6 +129,7 @@ export const StyledGalleryContainer = styled.div`
 
 export const StyledTimeline = styled.div`
   margin: 10px 0;
+  width: 100%;
 `
 
 export const StyledTimelineTitle = styled.p`
@@ -167,6 +170,43 @@ export const StyledBirhDateText = styled.p`
   `)}
 `
 
+export const StyledPriceContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
+  z-index: 5;
+
+  ${({ isFixed }: { isFixed: boolean }) => isFixed && css`
+    position: fixed;
+    bottom: -65px;
+  `}
+`
+
+export const StyledPriceDetails = styled.div`
+  background-color: ${Colors.LightGrey};
+  width: calc(100% - 20px);
+  transform: translateY(-15px);
+  padding: 30px 10px 15px;
+  border-radius: ${DEFAULT_BORDER_RADIUS};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const StyledPriceButton = styled.div`
+  width: 48%;
+
+  &:last-child {
+    button {
+      background-color: #00b332;
+    }
+  }
+`
+
 export const StyledPrice = styled.p`
   display: inline-block;
   margin: 0 auto;
@@ -175,6 +215,7 @@ export const StyledPrice = styled.p`
   border-radius: ${DEFAULT_BORDER_RADIUS};
   color: ${Colors.White};
   font-weight: bold;
+  z-index: 2;
 `
 
 export const StyledTableTitle = styled.p`
