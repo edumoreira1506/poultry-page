@@ -7,6 +7,7 @@ export const StyledContainer = styled.main`
   font-family: ${MAIN_FONT};
   display: flex;
   flex-direction: column;
+  align-items: center;
 `
 
 export const StyledHeader = styled.div`
@@ -172,13 +173,15 @@ export const StyledPriceContainer = styled.div`
   align-items: center;
   justify-content: center;
   flex-direction: column;
+  margin-top: 20px;
+  width: 100%;
+  max-width: 400px;
 `
 
 export const StyledPriceDetails = styled.div`
   background-color: ${Colors.LightGrey};
   width: calc(100% - 20px);
   transform: translateY(-15px);
-  z-index: -1;
   padding: 30px 10px 15px;
   border-radius: ${DEFAULT_BORDER_RADIUS};
   display: flex;
@@ -204,6 +207,7 @@ export const StyledPrice = styled.p`
   border-radius: ${DEFAULT_BORDER_RADIUS};
   color: ${Colors.White};
   font-weight: bold;
+  z-index: 2;
 `
 
 export const StyledTableTitle = styled.p`

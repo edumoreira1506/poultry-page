@@ -396,14 +396,14 @@ const Poultry: FC<PoultryProps> = ({
           <StyledPriceDetails>
             {Boolean(contacts.length) && (
               <StyledPriceButton>
-                <Button onClick={handleMessage}>
+                <Button onClick={handleMessage} type='button'>
                   Mensagem
                 </Button>
               </StyledPriceButton>
             )}
 
             <StyledPriceButton>
-              <Button onClick={handleBuy}>
+              <Button onClick={handleBuy} type='button'>
                 Comprar
               </Button>
             </StyledPriceButton>
