@@ -41,7 +41,7 @@ import {
 } from './Poultry.styles'
 import { MARKETPLACE_URL } from '../../constants/url'
 
-interface PoultryProps {
+export interface PoultryProps {
   poultry: Partial<IPoultry> & { code?: string; };
   images: IPoultryImage[];
   registers?: IPoultryRegister[];
