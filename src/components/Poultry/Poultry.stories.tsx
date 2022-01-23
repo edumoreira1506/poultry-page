@@ -22,6 +22,14 @@ Example.args = {
     }),
     code: 'ABCD-123'
   },
+  contacts: [
+    {
+      breederId: '',
+      id: '',
+      type: 'WHATS_APP',
+      value: '(15) 99644-2031'
+    }
+  ],
   images: [
     {
       imageUrl: '1634766823222-c4f8a3c6-713d-45f0-a492-49643cf32ed6.jpeg',

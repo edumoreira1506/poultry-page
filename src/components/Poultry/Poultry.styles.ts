@@ -167,6 +167,35 @@ export const StyledBirhDateText = styled.p`
   `)}
 `
 
+export const StyledPriceContainer = styled.div`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+`
+
+export const StyledPriceDetails = styled.div`
+  background-color: ${Colors.LightGrey};
+  width: calc(100% - 20px);
+  transform: translateY(-15px);
+  z-index: -1;
+  padding: 30px 10px 15px;
+  border-radius: ${DEFAULT_BORDER_RADIUS};
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+`
+
+export const StyledPriceButton = styled.div`
+  width: 48%;
+
+  &:last-child {
+    button {
+      background-color: #00b332;
+    }
+  }
+`
+
 export const StyledPrice = styled.p`
   display: inline-block;
   margin: 0 auto;

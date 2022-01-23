@@ -1,7 +1,7 @@
 import React, { FC, useCallback, useMemo, useState } from 'react'
 import ReactPlayer from 'react-player'
-import { ImageGallery, Timeline, Modal, Table, LinksBar } from '@cig-platform/ui'
-import { IAdvertising, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
+import { ImageGallery, Timeline, Modal, Table, LinksBar, Button } from '@cig-platform/ui'
+import { IAdvertising, IBreederContact, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
 import { BsFillEggFill, BsFillMegaphoneFill } from 'react-icons/bs'
 import { AiOutlineRollback } from 'react-icons/ai'
 import { BiTransfer } from 'react-icons/bi'
@@ -34,7 +34,10 @@ import {
   StyledTableTitle,
   StyledTableModal,
   StyledDescription,
-  StyledDescriptionTitle
+  StyledDescriptionTitle,
+  StyledPriceContainer,
+  StyledPriceDetails,
+  StyledPriceButton
 } from './Poultry.styles'
 import { MARKETPLACE_URL } from '../../constants/url'
 
@@ -44,6 +47,7 @@ interface PoultryProps {
   registers?: IPoultryRegister[];
   advertising?: IAdvertising;
   breederId?: string;
+  contacts?: IBreederContact[];
 }
 
 const COLORS: Record<string, string> = {
@@ -62,7 +66,8 @@ const Poultry: FC<PoultryProps> = ({
   images,
   registers = [],
   advertising,
-  breederId
+  breederId,
+  contacts = []
 }: PoultryProps) => {
   const [selectedRegister, setSelectedRegister] = useState<Partial<IPoultryRegister>>()
 
@@ -100,6 +105,18 @@ const Poultry: FC<PoultryProps> = ({
       alert('Link copiado com sucesso!')
     }
   }, [breederId, poultry])
+
+  const handleBuy = useCallback(() => {
+    alert('comprando!')
+  }, [])
+
+  const handleMessage = useCallback(() => {
+    const [whatsAppContact] = contacts
+
+    if (whatsAppContact) {
+      window.location.assign(`https://api.whatsapp.com/send?phone=55${whatsAppContact.value.replace(/\D/g, '')}`)
+    }
+  }, [contacts])
   
   const items = useMemo(() => ([
     {
@@ -372,7 +389,26 @@ const Poultry: FC<PoultryProps> = ({
       )}
 
       {advertising && (
-        <StyledPrice>{new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(advertising.price / 100)} à vista</StyledPrice>
+        <StyledPriceContainer>
+          <StyledPrice>
+            {new Intl.NumberFormat('pt-BR', { style: 'currency', currency: 'BRL' }).format(advertising.price / 100)} à Vista
+          </StyledPrice>
+          <StyledPriceDetails>
+            {Boolean(contacts.length) && (
+              <StyledPriceButton>
+                <Button onClick={handleMessage}>
+                  Mensagem
+                </Button>
+              </StyledPriceButton>
+            )}
+
+            <StyledPriceButton>
+              <Button onClick={handleBuy}>
+                Comprar
+              </Button>
+            </StyledPriceButton>
+          </StyledPriceDetails>
+        </StyledPriceContainer>
       )}
     </StyledContainer>
   )
