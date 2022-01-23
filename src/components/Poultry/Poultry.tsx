@@ -105,7 +105,7 @@ const Poultry: FC<PoultryProps> = ({
   }, [registers])
 
   const handleSharePoultry = useCallback(async () => {
-    const url = `${MARKETPLACE_URL}/breeders/${breederId}/poultries/${poultry?.id}`
+    const url = `${MARKETPLACE_URL}breeders/${breederId}/poultries/${poultry?.id}`
 
     if (navigator.share) {
       const shareDetails = { url, title: poultry.name, text: url }
