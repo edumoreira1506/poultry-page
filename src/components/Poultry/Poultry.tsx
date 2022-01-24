@@ -7,6 +7,7 @@ import { AiOutlineRollback, AiFillEdit } from 'react-icons/ai'
 import { BiTransfer } from 'react-icons/bi'
 import { BsShareFill, BsFillGearFill } from 'react-icons/bs'
 import copy from 'copy-to-clipboard'
+import { RegisterTypeEnum } from '@cig-platform/enums'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
 
@@ -81,8 +82,8 @@ const Poultry: FC<PoultryProps> = ({
 
   const formattedTimelineItems = useMemo(() => timelineFormatter(registers, poultry), [registers])
 
-  const vaccines = useMemo(() => registers?.filter(({ type }) => type === 'VACINAÇÃO') ?? [], [registers])
-  const measurementsAndWeighint = useMemo(() => registers?.filter(({ type }) => type === 'MEDIÇÃO E PESAGEM') ?? [], [registers])
+  const vaccines = useMemo(() => registers?.filter(({ type }) => type === RegisterTypeEnum.Vaccination) ?? [], [registers])
+  const measurementsAndWeighint = useMemo(() => registers?.filter(({ type }) => type === RegisterTypeEnum.MeasurementAndWeighing) ?? [], [registers])
 
   const handleEditAdvertising = useCallback(() => {
     if (!advertising || !poultry?.id || !breederId || !onEditAdvertising) return
@@ -186,7 +187,7 @@ const Poultry: FC<PoultryProps> = ({
       <LinksBar items={items} />
       
       <Modal isOpen={Boolean(selectedRegister)} onClose={handleCloseRegisterModal}>
-        {selectedRegister?.type === 'IMAGENS' && (
+        {selectedRegister?.type === RegisterTypeEnum.Images && (
           <ImageGallery
             showPlayButton={false}
             items={selectedRegister?.files?.map(file => imageFormatter(file.fileName, 'registers')) ?? []}
@@ -202,7 +203,7 @@ const Poultry: FC<PoultryProps> = ({
           </StyledBirthDate>
         )}
 
-        {selectedRegister?.type === 'ANÚNCIO' && (
+        {selectedRegister?.type === RegisterTypeEnum.Advertising && (
           <StyledBirthDate>
             <StyledBirhDateText>
               {selectedRegister?.description} 
@@ -211,7 +212,7 @@ const Poultry: FC<PoultryProps> = ({
           </StyledBirthDate>
         )}
 
-        {selectedRegister?.type === 'REMOÇÃO DE ANÚNCIO' && (
+        {selectedRegister?.type === RegisterTypeEnum.RemoveAdvertising && (
           <StyledBirthDate>
             <StyledBirhDateText>
               {selectedRegister?.description} 
@@ -220,7 +221,7 @@ const Poultry: FC<PoultryProps> = ({
           </StyledBirthDate>
         )}
 
-        {selectedRegister?.type === 'TRANSFERÊNCIA' && (
+        {selectedRegister?.type === RegisterTypeEnum.Transfer && (
           <StyledBirthDate>
             <StyledBirhDateText>
               {selectedRegister?.description} 
@@ -229,7 +230,7 @@ const Poultry: FC<PoultryProps> = ({
           </StyledBirthDate>
         )}
 
-        {selectedRegister?.type === 'VACINAÇÃO' && (
+        {selectedRegister?.type === RegisterTypeEnum.Vaccination && (
           <StyledTableModal>
             <Table
               columns={['Data', 'Nome', 'Dose']}
@@ -239,7 +240,7 @@ const Poultry: FC<PoultryProps> = ({
           </StyledTableModal>
         )}
 
-        {selectedRegister?.type === 'MEDIÇÃO E PESAGEM' && (
+        {selectedRegister?.type === RegisterTypeEnum.MeasurementAndWeighing && (
           <StyledTableModal>
             <Table
               columns={['Data', 'Peso', 'Medida']}
