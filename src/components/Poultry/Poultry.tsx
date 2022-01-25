@@ -53,6 +53,8 @@ export interface PoultryProps {
   breederId?: string;
   contacts?: IBreederContact[];
   onEditAdvertising?: ({ breederId, advertisingId, poultryId }: { breederId: string; poultryId: string; advertisingId: string; }) => void;
+  onComment?: ({ comment, advertisingId }: { comment: string; advertisingId: string }) => void;
+  onAnswer?: ({ comment, advertisingId, commentId }: { comment: string; advertisingId: string; commentId: string; }) => void;
   onSeeConfig?: () => void;
   breeder: IBreeder;
 }
@@ -77,7 +79,9 @@ const Poultry: FC<PoultryProps> = ({
   contacts = [],
   onEditAdvertising,
   onSeeConfig,
-  breeder
+  breeder,
+  onAnswer,
+  onComment
 }: PoultryProps) => {
   const [isPriceFixed, setIsPriceFixed] = useState(true)
 
@@ -89,6 +93,18 @@ const Poultry: FC<PoultryProps> = ({
 
   const vaccines = useMemo(() => registers?.filter(({ type }) => type === RegisterTypeEnum.Vaccination) ?? [], [registers])
   const measurementsAndWeighint = useMemo(() => registers?.filter(({ type }) => type === RegisterTypeEnum.MeasurementAndWeighing) ?? [], [registers])
+
+  const handleComment = useCallback((comment: string) => {
+    const advertisingId = advertising?.id ?? ''
+
+    onComment?.({ comment, advertisingId })
+  }, [onComment, advertising?.id])
+
+  const handleAnswer = useCallback((comment: string, commentId: string) => {
+    const advertisingId = advertising?.id ?? ''
+
+    onAnswer?.({ comment, advertisingId, commentId })
+  }, [onAnswer, advertising?.id])
 
   const handleEditAdvertising = useCallback(() => {
     if (!advertising || !poultry?.id || !breederId || !onEditAdvertising) return
@@ -455,7 +471,11 @@ const Poultry: FC<PoultryProps> = ({
       {Boolean(advertising?.questions?.length) && (
         <StyledCommentsContainer>
           <StyledCommentsTitle>Perguntas</StyledCommentsTitle>
-          <CommentList comments={comments} />
+          <CommentList
+            comments={comments}
+            onComment={onComment ? handleComment : undefined}
+            onAnswer={onAnswer ? handleAnswer : undefined}
+          />
         </StyledCommentsContainer>
       )}
 

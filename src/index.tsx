@@ -10,12 +10,19 @@ const queryClient = new QueryClient()
 type Callbacks = {
   onEditAdvertising?: PoultryProps['onEditAdvertising'];
   onSeeConfig?: PoultryProps['onSeeConfig'];
+  onComment?: PoultryProps['onComment'];
+  onAnswer?: PoultryProps['onAnswer'];
 }
 
 (window as any).renderPoultryPage = (
   containerId: string,
   { breederId, poultryId }: { breederId: string; poultryId: string; },
-  { onEditAdvertising, onSeeConfig }: Callbacks = {}
+  {
+    onEditAdvertising,
+    onSeeConfig,
+    onAnswer,
+    onComment
+  }: Callbacks = {}
 ) => {
   const targetDocument = document.getElementById(containerId)
 
@@ -27,6 +34,8 @@ type Callbacks = {
           poultryId={poultryId}
           breederId={breederId}
           onSeeConfig={onSeeConfig}
+          onComment={onComment}
+          onAnswer={onAnswer}
         />
       </QueryClientProvider>,
       targetDocument,
