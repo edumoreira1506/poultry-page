@@ -470,7 +470,7 @@ const Poultry: FC<PoultryProps> = ({
         </>
       )}
 
-      {Boolean(advertising?.questions?.length) && (
+      {Boolean(advertising) && (
         <StyledCommentsContainer>
           <StyledCommentsTitle>Perguntas</StyledCommentsTitle>
           <CommentList
