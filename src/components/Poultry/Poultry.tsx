@@ -173,7 +173,7 @@ const Poultry: FC<PoultryProps> = ({
       onClick: handleSharePoultry,
       children: <BsShareFill />
     },
-    advertising && {
+    advertising && onEditAdvertising && {
       onClick: handleEditAdvertising,
       children: <AiFillEdit />
     },
