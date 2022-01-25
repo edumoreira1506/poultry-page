@@ -240,6 +240,9 @@ export const StyledTable = styled.div`
 
 export const StyledTableModal = styled.div``
 
-export const StyledCommentsContainer = styled.div``
+export const StyledCommentsContainer = styled.div`
+  width: 100%;
+  max-width: 800px;
+`
 
 export const StyledCommentsTitle = styled.p``
