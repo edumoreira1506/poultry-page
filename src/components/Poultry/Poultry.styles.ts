@@ -239,3 +239,7 @@ export const StyledTable = styled.div`
 `
 
 export const StyledTableModal = styled.div``
+
+export const StyledCommentsContainer = styled.div``
+
+export const StyledCommentsTitle = styled.p``

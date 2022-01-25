@@ -1,7 +1,7 @@
 import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import ReactPlayer from 'react-player'
-import { ImageGallery, Timeline, Modal, Table, LinksBar, Button } from '@cig-platform/ui'
-import { IAdvertising, IBreederContact, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
+import { ImageGallery, Timeline, Modal, Table, LinksBar, Button, CommentList } from '@cig-platform/ui'
+import { IBreeder, IBreederContact, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
 import { BsFillEggFill, BsFillMegaphoneFill } from 'react-icons/bs'
 import { AiOutlineRollback, AiFillEdit } from 'react-icons/ai'
 import { BiTransfer } from 'react-icons/bi'
@@ -38,19 +38,23 @@ import {
   StyledDescriptionTitle,
   StyledPriceContainer,
   StyledPriceDetails,
-  StyledPriceButton
+  StyledPriceButton,
+  StyledCommentsContainer,
+  StyledCommentsTitle
 } from './Poultry.styles'
 import { MARKETPLACE_URL } from '../../constants/url'
+import { Advertising } from '../../hooks/useData'
 
 export interface PoultryProps {
   poultry: Partial<IPoultry> & { code?: string; };
   images: IPoultryImage[];
   registers?: IPoultryRegister[];
-  advertising?: IAdvertising;
+  advertising?: Advertising;
   breederId?: string;
   contacts?: IBreederContact[];
   onEditAdvertising?: ({ breederId, advertisingId, poultryId }: { breederId: string; poultryId: string; advertisingId: string; }) => void;
   onSeeConfig?: () => void;
+  breeder: IBreeder;
 }
 
 const COLORS: Record<string, string> = {
@@ -72,7 +76,8 @@ const Poultry: FC<PoultryProps> = ({
   breederId,
   contacts = [],
   onEditAdvertising,
-  onSeeConfig
+  onSeeConfig,
+  breeder
 }: PoultryProps) => {
   const [isPriceFixed, setIsPriceFixed] = useState(true)
 
@@ -175,6 +180,22 @@ const Poultry: FC<PoultryProps> = ({
     items: [dateFormatter(String(register.date)), `${register?.metadata?.weight} KG`, `${register?.metadata?.measurement} CM`],
     expandedContent: register.description
   })).reverse(), [measurementsAndWeighint])
+
+  const comments = useMemo(() => advertising?.questions.map(question => ({
+    name: question.user.name,
+    content: question.content,
+    date: new Date(question.createdAt),
+    image: 'https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png',
+    answers: question.answers.map(answer => ({
+      name: `${breeder?.name} - ${answer.user.name}`,
+      content: answer.content,
+      date: new Date(answer.createdAt),
+      image: 'https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png',
+    }))
+  })) ?? [], [
+    advertising?.questions,
+    breeder?.name
+  ])
 
   useEffect(() => {
     document.addEventListener('scroll', handleScrollWindow)
@@ -429,6 +450,13 @@ const Poultry: FC<PoultryProps> = ({
             />
           </StyledTable>
         </>
+      )}
+
+      {Boolean(advertising?.questions?.length) && (
+        <StyledCommentsContainer>
+          <StyledCommentsTitle>Perguntas</StyledCommentsTitle>
+          <CommentList comments={comments} />
+        </StyledCommentsContainer>
       )}
 
       {advertising && (
