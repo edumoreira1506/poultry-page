@@ -41,6 +41,7 @@ const PoultryContainer: FC<PoultryContainerProps> = ({
       contacts={data?.whatsAppContacts}
       onEditAdvertising={onEditAdvertising}
       onSeeConfig={onSeeConfig}
+      breeder={data?.breeder}
     />
   )
 }

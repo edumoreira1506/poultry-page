@@ -1502,14 +1502,14 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cig-platform/content-search-client@^0.0.8":
-  version "0.0.8"
-  resolved "https://registry.yarnpkg.com/@cig-platform/content-search-client/-/content-search-client-0.0.8.tgz#94b924feec5eed1d58c86bc2257ddd7fd8d26be0"
-  integrity sha512-JWKYP2Wj31E+dubGXdraEZ12K7KAicyCg6/CWRFIl8s3ENk59DCkKf2Qw6KTDVZJA95oDLkjvdzu4K/Mo0+d/Q==
+"@cig-platform/content-search-client@^0.0.13":
+  version "0.0.13"
+  resolved "https://registry.yarnpkg.com/@cig-platform/content-search-client/-/content-search-client-0.0.13.tgz#53c24b8e6f617f93218fbdcf4bda9943c821da49"
+  integrity sha512-NAUG1d/fZIL5QH+TJKNAk+Wh4pAfls8m/FNPARMyMByVCcjs4FfmX3j2qQC/SH52ED0ZQmS4EYwCla7fz3FxNQ==
   dependencies:
     "@babel/plugin-proposal-decorators" "^7.16.4"
     "@cig-platform/decorators" "^0.0.1"
-    "@cig-platform/types" "^0.0.21"
+    "@cig-platform/types" "^0.0.22"
     axios "^0.24.0"
 
 "@cig-platform/decorators@^0.0.1":
@@ -1546,17 +1546,17 @@
   dependencies:
     express "^4.17.1"
 
-"@cig-platform/types@^0.0.21":
-  version "0.0.21"
-  resolved "https://registry.yarnpkg.com/@cig-platform/types/-/types-0.0.21.tgz#afc8048208bb496c6a8d196ddd9a20ca04a26129"
-  integrity sha512-kBFoYTi4ZA2xzCVGoVzJRQOLZBIpngTCSwimEwo30XmVzTICJzwceRy5Es0m5dZ7E0EULvJXYY+PMPNUJVlRiA==
+"@cig-platform/types@^0.0.22":
+  version "0.0.22"
+  resolved "https://registry.yarnpkg.com/@cig-platform/types/-/types-0.0.22.tgz#856e95719db4272374c15969975f357d6806e897"
+  integrity sha512-2IC/1uoaQOzZkOacNzeBBz2VE4yLMgiUSZ+rDax/wdCaXN2c229bH7zbJiOJ0l39ErUFdSlnE9BJAGLdYLOnRw==
   dependencies:
     express "^4.17.1"
 
-"@cig-platform/ui@^0.1.90":
-  version "0.1.90"
-  resolved "https://registry.yarnpkg.com/@cig-platform/ui/-/ui-0.1.90.tgz#9a5db4bad0a704c39f0c255b00930ba363f8be12"
-  integrity sha512-iNZ/9igDGxSeaf4nCp071ikV4kPtbPK0V2Ras+me030MWGn2M8kfD9P+NaytBet+bfp2eArZuvRt01VNtEBtyg==
+"@cig-platform/ui@^0.1.94":
+  version "0.1.94"
+  resolved "https://registry.yarnpkg.com/@cig-platform/ui/-/ui-0.1.94.tgz#425ef92def2f73fdbd37002d83e0da94f783da21"
+  integrity sha512-HldT3cy7leRdn35JGEGJHVRfzxlhGj6nVkuxYezmxse1SWc5phTxzJEhajI53LXPVD7uURJMwl4gxzbpOU/A6w==
   dependencies:
     "@cig-platform/types" "^0.0.14"
     "@testing-library/jest-dom" "^5.11.4"

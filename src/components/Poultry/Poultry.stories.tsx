@@ -1,6 +1,6 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
-import { poultryFactory } from '@cig-platform/factories'
+import { breederFactory, poultryFactory } from '@cig-platform/factories'
 
 import Poultry from './Poultry'
 
@@ -117,8 +117,41 @@ Example.args = {
   advertising: {
     price: 1500,
     id: 'id',
-    externalId: 'externalId'
+    externalId: 'externalId',
+    questions: [
+      {
+        user: {
+          name: 'Eduardo Moreira',
+          id:  '',
+          email: '',
+          password: '',
+          register: '',
+        },
+        answers: [
+          {
+            user: {
+              name: 'Eduardo Moreira',
+              id:  '',
+              email: '',
+              password: '',
+              register: '',
+            },
+            id: '',
+            content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a iaculis quam, condimentum volutpat est.',
+            questionId: '',
+            createdAt: new Date(),
+            externalId: '',
+          }
+        ],
+        id: '',
+        content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a iaculis quam, condimentum volutpat est.',
+        advertisingId: '',
+        createdAt: new Date(),
+        externalId: '',
+      }
+    ]
   },
+  breeder: breederFactory(),
   breederId: 'Algum breeder id',
   onSeeConfig: () => alert('onSeeConfig')
 }

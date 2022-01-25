@@ -1,7 +1,30 @@
-import { IAdvertising, IBreederContact, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
+import {
+  IAdvertising,
+  IBreederContact,
+  IPoultry,
+  IPoultryImage,
+  IPoultryRegister,
+  IAdvertisingQuestion,
+  IAdvertisingQuestionAnswer,
+  IUser,
+  IBreeder
+} from '@cig-platform/types'
 import { useQuery } from 'react-query'
 
 import ContentSearchClient from '../clients/ContentSearchClient'
+
+interface AdvertisingQuestionAnswer extends IAdvertisingQuestionAnswer {
+  user: IUser;
+}
+
+interface Question extends IAdvertisingQuestion {
+  answers: AdvertisingQuestionAnswer[];
+  user: IUser;
+}
+
+export interface Advertising extends IAdvertising {
+  questions: Question[];
+}
 
 interface Data {
   poultry: IPoultry & {
@@ -9,10 +32,11 @@ interface Data {
     code: string;
   };
   registers: IPoultryRegister[];
-  advertisings: IAdvertising[];
+  advertisings: Advertising[];
   vaccines: IPoultryRegister[];
   measurementAndWeigthing: IPoultryRegister[];
-  whatsAppContacts: IBreederContact[]
+  whatsAppContacts: IBreederContact[];
+  breeder: IBreeder;
 }
 
 export default function useData(breederId: string, poultryId: string) {
