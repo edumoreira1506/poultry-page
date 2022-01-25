@@ -1,7 +1,23 @@
-import { IAdvertising, IBreederContact, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
+import {
+  IAdvertising,
+  IBreederContact,
+  IPoultry,
+  IPoultryImage,
+  IPoultryRegister,
+  IAdvertisingQuestion,
+  IAdvertisingQuestionAnswer
+} from '@cig-platform/types'
 import { useQuery } from 'react-query'
 
 import ContentSearchClient from '../clients/ContentSearchClient'
+
+interface Question extends IAdvertisingQuestion {
+  answers: IAdvertisingQuestionAnswer[];
+}
+
+interface Advertising extends IAdvertising {
+  questions: Question[];
+}
 
 interface Data {
   poultry: IPoultry & {
@@ -9,7 +25,7 @@ interface Data {
     code: string;
   };
   registers: IPoultryRegister[];
-  advertisings: IAdvertising[];
+  advertisings: Advertising[];
   vaccines: IPoultryRegister[];
   measurementAndWeigthing: IPoultryRegister[];
   whatsAppContacts: IBreederContact[]
