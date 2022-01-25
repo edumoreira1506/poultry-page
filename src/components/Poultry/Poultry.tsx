@@ -475,6 +475,7 @@ const Poultry: FC<PoultryProps> = ({
             comments={comments}
             onComment={onComment ? handleComment : undefined}
             onAnswer={onAnswer ? handleAnswer : undefined}
+            commentNameButton='Comentar'
           />
         </StyledCommentsContainer>
       )}
