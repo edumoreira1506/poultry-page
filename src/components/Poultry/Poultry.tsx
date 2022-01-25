@@ -207,7 +207,9 @@ const Poultry: FC<PoultryProps> = ({
       content: answer.content,
       date: new Date(answer.createdAt),
       image: 'https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png',
-    }))
+      identifier: answer.id
+    })),
+    identifier: question.id
   })) ?? [], [
     advertising?.questions,
     breeder?.name
