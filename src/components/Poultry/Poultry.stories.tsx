@@ -153,5 +153,7 @@ Example.args = {
   },
   breeder: breederFactory(),
   breederId: 'Algum breeder id',
-  onSeeConfig: () => alert('onSeeConfig')
+  onSeeConfig: () => alert('onSeeConfig'),
+  onComment: () => alert('onComment'),
+  onAnswer: () => alert('onAnswer'),
 }
