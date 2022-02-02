@@ -56,6 +56,7 @@ export interface PoultryProps {
   onComment?: ({ comment, advertisingId }: { comment: string; advertisingId: string }) => void;
   onAnswer?: ({ comment, advertisingId, commentId }: { comment: string; advertisingId: string; commentId: string; }) => void;
   onSeeConfig?: () => void;
+  onBuy?: ({ advertisingId, breederId, poultryId }: { breederId: string; poultryId: string; advertisingId: string; }) => void;
   breeder: IBreeder;
 }
 
@@ -81,7 +82,8 @@ const Poultry: FC<PoultryProps> = ({
   onSeeConfig,
   breeder,
   onAnswer,
-  onComment
+  onComment,
+  onBuy
 }: PoultryProps) => {
   const [isPriceFixed, setIsPriceFixed] = useState(true)
 
@@ -157,8 +159,15 @@ const Poultry: FC<PoultryProps> = ({
   }, [breederId, poultry])
 
   const handleBuy = useCallback(() => {
-    alert('comprando!')
-  }, [])
+    const advertisingId = advertising?.id ?? ''
+    const poultryId = poultry?.id ?? ''
+
+    onBuy?.({
+      advertisingId,
+      breederId: String(breederId),
+      poultryId
+    })
+  }, [onBuy, advertising, breederId, poultry])
 
   const handleMessage = useCallback(() => {
     const [whatsAppContact] = contacts
@@ -496,11 +505,13 @@ const Poultry: FC<PoultryProps> = ({
               </StyledPriceButton>
             )}
 
-            <StyledPriceButton>
-              <Button onClick={handleBuy} type='button'>
+            {onBuy && (
+              <StyledPriceButton>
+                <Button onClick={handleBuy} type='button'>
                 Comprar
-              </Button>
-            </StyledPriceButton>
+                </Button>
+              </StyledPriceButton>
+            )}
           </StyledPriceDetails>
         </StyledPriceContainer>
       )}
