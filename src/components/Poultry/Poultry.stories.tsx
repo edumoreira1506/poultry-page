@@ -1,5 +1,6 @@
 import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
+import { action } from '@storybook/addon-actions'
 import { breederFactory, poultryFactory } from '@cig-platform/factories'
 
 import Poultry from './Poultry'
@@ -153,7 +154,8 @@ Example.args = {
   },
   breeder: breederFactory(),
   breederId: 'Algum breeder id',
-  onSeeConfig: () => alert('onSeeConfig'),
-  onComment: () => alert('onComment'),
-  onAnswer: () => alert('onAnswer'),
+  onSeeConfig: () => action('onSeeConfig'),
+  onComment: () => action('onComment'),
+  onAnswer: () => action('onAnswer'),
+  onBuy: () => action('onBuy'),
 }
