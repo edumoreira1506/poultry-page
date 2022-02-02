@@ -12,6 +12,7 @@ type Callbacks = {
   onSeeConfig?: PoultryProps['onSeeConfig'];
   onComment?: PoultryProps['onComment'];
   onAnswer?: PoultryProps['onAnswer'];
+  onBuy?: PoultryProps['onBuy'];
 }
 
 (window as any).renderPoultryPage = (
@@ -21,7 +22,8 @@ type Callbacks = {
     onEditAdvertising,
     onSeeConfig,
     onAnswer,
-    onComment
+    onComment,
+    onBuy,
   }: Callbacks = {}
 ) => {
   const targetDocument = document.getElementById(containerId)
@@ -36,6 +38,7 @@ type Callbacks = {
           onSeeConfig={onSeeConfig}
           onComment={onComment}
           onAnswer={onAnswer}
+          onBuy={onBuy}
         />
       </QueryClientProvider>,
       targetDocument,

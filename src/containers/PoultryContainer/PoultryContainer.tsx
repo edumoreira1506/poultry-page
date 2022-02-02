@@ -11,6 +11,7 @@ export interface PoultryContainerProps {
   onSeeConfig?: PoultryProps['onSeeConfig'];
   onAnswer?: PoultryProps['onAnswer'];
   onComment?: PoultryProps['onComment'];
+  onBuy?: PoultryProps['onBuy'];
 }
 
 const PoultryContainer: FC<PoultryContainerProps> = ({
@@ -19,7 +20,8 @@ const PoultryContainer: FC<PoultryContainerProps> = ({
   onEditAdvertising,
   onSeeConfig,
   onComment,
-  onAnswer
+  onAnswer,
+  onBuy
 }: PoultryContainerProps) => {
   const { data, isLoading } = useData(breederId, poultryId)
 
@@ -48,6 +50,7 @@ const PoultryContainer: FC<PoultryContainerProps> = ({
       breeder={data?.breeder}
       onComment={onComment}
       onAnswer={onAnswer}
+      onBuy={onBuy}
     />
   )
 }
