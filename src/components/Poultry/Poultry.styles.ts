@@ -67,24 +67,30 @@ export const StyledInfoList = styled.ul`
 `
 
 export const StyledInfoItem = styled.li`
-  width: calc(50% - 5px);
+  width: 100%;
   height: 70px;
   font-weight: bold;
+
+  ${createMinWidthMediaQuery(`
+    width: calc(50% - 15px);
+  `)}
 `
 
 export const StyledInfoKey = styled.p`
   background-color: ${Colors.DarkBlue};
   color: ${Colors.White};
   border-radius: ${DEFAULT_BORDER_RADIUS};
-  padding: 4px 10px;
+  padding: 4px 0;
   display: inline-block;
   font-size: 15px;
   margin: 0 0 10px;
+  width: 100%;
+  text-align: center;
 `
 
 export const StyledInfoValue = styled.div`
   font-size: 15px;
-  padding-left: 5px;
+  text-align: center;
 `
 
 export const StyledVideoContainer = styled.div`
