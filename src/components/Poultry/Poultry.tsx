@@ -535,7 +535,7 @@ const Poultry: FC<PoultryProps> = ({
             {onBuy && (
               <StyledPriceButton>
                 <Button onClick={handleBuy} type='button'>
-                Comprar
+                  Fazer proposta
                 </Button>
               </StyledPriceButton>
             )}
