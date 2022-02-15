@@ -14,7 +14,7 @@ const icons: Record<string, ReactNode> = {
   [RegisterTypeEnum.Transfer]: <BiTransfer />
 }
 
-export default function timelineFormatter(registers: IPoultryRegister[], poultry: Partial<IPoultry>) {
+export default function timelineFormatter(registers: IPoultryRegister[] = [], poultry: Partial<IPoultry>) {
   const birthDateRegister = {
     key: 'BIRTH_DATE',
     description: 'Primeiro registro do animal',

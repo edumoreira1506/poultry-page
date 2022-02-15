@@ -73,7 +73,7 @@ const getColor = (originalColor = '') => {
 
 const Poultry: FC<PoultryProps> = ({
   poultry,
-  images,
+  images = [],
   registers = [],
   advertising,
   breederId,
@@ -89,12 +89,21 @@ const Poultry: FC<PoultryProps> = ({
 
   const [selectedRegister, setSelectedRegister] = useState<Partial<IPoultryRegister>>()
 
-  const formattedImagesOfGallery = useMemo(() => images.map(i => imageFormatter(i.imageUrl)), [images])
+  const formattedImagesOfGallery = useMemo(() => images?.map(i => imageFormatter(i.imageUrl) ?? []), [images])
 
   const formattedTimelineItems = useMemo(() => timelineFormatter(registers, poultry), [registers])
 
   const vaccines = useMemo(() => registers?.filter(({ type }) => type === RegisterTypeEnum.Vaccination) ?? [], [registers])
   const measurementsAndWeighint = useMemo(() => registers?.filter(({ type }) => type === RegisterTypeEnum.MeasurementAndWeighing) ?? [], [registers])
+
+  const lastMeasurement = useMemo(() =>
+    measurementsAndWeighint.find(item => Boolean(Number(item?.metadata?.measurement))),
+  [measurementsAndWeighint]
+  )
+  const lastWeighint = useMemo(() =>
+    measurementsAndWeighint.find(item => Boolean(Number(item?.metadata?.weight))),
+  [measurementsAndWeighint]
+  )
 
   const handleComment = useCallback((comment: string) => {
     const advertisingId = advertising?.id ?? ''
@@ -304,7 +313,7 @@ const Poultry: FC<PoultryProps> = ({
         <StyledHeaderText>{poultry.code}</StyledHeaderText>
       </StyledHeader>
 
-      {Boolean(images.length) && (
+      {Boolean(images?.length) && (
         <StyledGalleryContainer>
           <ImageGallery
             items={formattedImagesOfGallery}
@@ -423,6 +432,24 @@ const Poultry: FC<PoultryProps> = ({
             </StyledInfoValue>
           </StyledInfoItem>
         )}
+
+        <StyledInfoItem>
+          <StyledInfoKey>
+            Peso
+          </StyledInfoKey>
+          <StyledInfoValue>
+            {lastWeighint?.metadata?.weight ? `${lastWeighint.metadata.weight}kg` : 'Não informado'}
+          </StyledInfoValue>
+        </StyledInfoItem>
+
+        <StyledInfoItem>
+          <StyledInfoKey>
+            Medida
+          </StyledInfoKey>
+          <StyledInfoValue>
+            {lastMeasurement?.metadata?.measurement ? `${lastMeasurement.metadata.measurement}cm` : 'Não informado'}
+          </StyledInfoValue>
+        </StyledInfoItem>
       </StyledInfoList>
 
       {poultry.videos?.presentation && (
