@@ -211,7 +211,11 @@ const Poultry: FC<PoultryProps> = ({
   })).reverse(), [vaccines])
 
   const formattedMeasurementAndWeighintRows = useMemo(() => measurementsAndWeighint.map(register => ({
-    items: [dateFormatter(String(register.date)), `${register?.metadata?.weight} KG`, `${register?.metadata?.measurement} CM`],
+    items: [
+      dateFormatter(String(register.date)),
+      `${register?.metadata?.weight ? `${register?.metadata?.weight} KG` : 'Não informado'}`,
+      `${register?.metadata?.measurement ? `${register?.metadata?.measurement} CM` : 'Não informado'}`
+    ],
     expandedContent: register.description
   })).reverse(), [measurementsAndWeighint])
 
