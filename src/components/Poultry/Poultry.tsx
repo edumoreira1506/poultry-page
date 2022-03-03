@@ -305,7 +305,14 @@ const Poultry: FC<PoultryProps> = ({
           <StyledTableModal>
             <Table
               columns={['Data', 'Peso', 'Medida']}
-              rows={[{ items: [dateFormatter(String(selectedRegister?.date)), `${selectedRegister?.metadata?.weight} KG`, `${selectedRegister?.metadata?.measurement} CM`], expandedContent: String(selectedRegister?.description) }]}
+              rows={[{
+                items: [
+                  dateFormatter(String(selectedRegister?.date)), 
+                  selectedRegister?.metadata?.weight ? `${selectedRegister.metadata.weight} KG` : 'Não informado',
+                  selectedRegister?.metadata?.measurement ? `${selectedRegister.metadata.measurement} CM` : 'Não informado'
+                ],
+                expandedContent: String(selectedRegister?.description)
+              }]}
               hasExpandColumn
             />
           </StyledTableModal>
