@@ -189,15 +189,18 @@ const Poultry: FC<PoultryProps> = ({
   const items = useMemo<any>(() => ([
     {
       onClick: handleSharePoultry,
-      children: <BsShareFill />
+      children: <BsShareFill />,
+      identifier: 'share-poultry'
     },
     advertising && onEditAdvertising && {
       onClick: handleEditAdvertising,
-      children: <AiFillEdit />
+      children: <AiFillEdit />,
+      identifier: 'edit-advertising'
     },
     onSeeConfig && {
       onClick: onSeeConfig,
-      children: <BsFillGearFill />
+      children: <BsFillGearFill />,
+      identifier: 'see-config'
     }
   ].filter(Boolean)), [handleSharePoultry, advertising, onSeeConfig])
 
