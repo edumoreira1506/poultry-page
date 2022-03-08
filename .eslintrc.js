@@ -5,7 +5,6 @@ module.exports = {
   },
   'extends': [
     'eslint:recommended',
-    'plugin:react/recommended',
     'plugin:@typescript-eslint/recommended'
   ],
   'parser': '@typescript-eslint/parser',
@@ -17,12 +16,13 @@ module.exports = {
     'sourceType': 'module'
   },
   'plugins': [
-    'react',
     '@typescript-eslint'
   ],
   'rules': {
     '@typescript-eslint/explicit-module-boundary-types': 'off',
     '@typescript-eslint/no-explicit-any': 'off',
+    'no-nonoctal-decimal-escape': 'off',
+    'no-unsafe-optional-chaining': 'off',
     'indent': [
       'error',
       2

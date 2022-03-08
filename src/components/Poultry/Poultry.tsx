@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
+import { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import ReactPlayer from 'react-player'
 import { ImageGallery, Timeline, Modal, Table, LinksBar, Button, CommentList } from '@cig-platform/ui'
 import { IBreeder, IBreederContact, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
@@ -189,15 +189,18 @@ const Poultry: FC<PoultryProps> = ({
   const items = useMemo<any>(() => ([
     {
       onClick: handleSharePoultry,
-      children: <BsShareFill />
+      children: <BsShareFill />,
+      identifier: 'share-poultry'
     },
     advertising && onEditAdvertising && {
       onClick: handleEditAdvertising,
-      children: <AiFillEdit />
+      children: <AiFillEdit />,
+      identifier: 'edit-advertising'
     },
     onSeeConfig && {
       onClick: onSeeConfig,
-      children: <BsFillGearFill />
+      children: <BsFillGearFill />,
+      identifier: 'see-config'
     }
   ].filter(Boolean)), [handleSharePoultry, advertising, onSeeConfig])
 
@@ -336,7 +339,7 @@ const Poultry: FC<PoultryProps> = ({
       {poultry?.description && (
         <>
           <StyledDescriptionTitle>
-          Descrição
+            Descrição
           </StyledDescriptionTitle>
           <StyledDescription>
             {poultry.description}
@@ -436,7 +439,7 @@ const Poultry: FC<PoultryProps> = ({
         {poultry?.gender && (
           <StyledInfoItem>
             <StyledInfoKey>
-            Sexagem
+              Sexo
             </StyledInfoKey>
             <StyledInfoValue>
               {poultry.gender}
