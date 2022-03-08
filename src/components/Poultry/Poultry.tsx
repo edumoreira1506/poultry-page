@@ -1,4 +1,4 @@
-import React, { FC, useCallback, useEffect, useMemo, useState } from 'react'
+import { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import ReactPlayer from 'react-player'
 import { ImageGallery, Timeline, Modal, Table, LinksBar, Button, CommentList } from '@cig-platform/ui'
 import { IBreeder, IBreederContact, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'

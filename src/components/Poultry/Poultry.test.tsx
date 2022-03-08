@@ -1,13 +1,14 @@
 import React from 'react'
 import { render, screen } from '@testing-library/react'
-import { poultryFactory } from '@cig-platform/factories'
+import { breederFactory, poultryFactory } from '@cig-platform/factories'
 
 import Poultry from './Poultry'
 
 const DEFAULT_PROPS = {
   poultry: poultryFactory(),
   images: [],
-  registers: []
+  registers: [],
+  breeder: breederFactory()
 }
 
 describe('Poultry', () => {

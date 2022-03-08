@@ -4,6 +4,7 @@ import { action } from '@storybook/addon-actions'
 import { breederFactory, poultryFactory } from '@cig-platform/factories'
 
 import Poultry from './Poultry'
+import { UserRegisterTypeEnum } from '@cig-platform/enums'
 
 export default {
   title: 'Poultry',
@@ -116,6 +117,7 @@ Example.args = {
     }
   ],
   advertising: {
+    finished: false,
     price: 1500,
     id: 'id',
     externalId: 'externalId',
@@ -127,6 +129,7 @@ Example.args = {
           email: '',
           password: '',
           register: '',
+          registerType: UserRegisterTypeEnum.Default
         },
         answers: [
           {
@@ -136,6 +139,7 @@ Example.args = {
               email: '',
               password: '',
               register: '',
+              registerType: UserRegisterTypeEnum.Default
             },
             id: '',
             content: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse a iaculis quam, condimentum volutpat est.',
