@@ -339,7 +339,7 @@ const Poultry: FC<PoultryProps> = ({
       {poultry?.description && (
         <>
           <StyledDescriptionTitle>
-          Descrição
+            Descrição
           </StyledDescriptionTitle>
           <StyledDescription>
             {poultry.description}
@@ -439,7 +439,7 @@ const Poultry: FC<PoultryProps> = ({
         {poultry?.gender && (
           <StyledInfoItem>
             <StyledInfoKey>
-            Sexagem
+              Sexo
             </StyledInfoKey>
             <StyledInfoValue>
               {poultry.gender}
