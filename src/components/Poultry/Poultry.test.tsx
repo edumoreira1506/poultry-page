@@ -35,6 +35,8 @@ describe('Poultry', () => {
     expect(screen.getByText('Barbela')).toBeInTheDocument()
     expect(screen.getByText(DEFAULT_PROPS.poultry.gender)).toBeInTheDocument()
     expect(screen.getByText('Sexo')).toBeInTheDocument()
+    expect(screen.getByText('Nº Anilha Interna')).toBeInTheDocument()
+    expect(screen.getByText(DEFAULT_PROPS.poultry.register)).toBeInTheDocument()
     expect(screen.getByText('Peso')).toBeInTheDocument()
     expect(screen.getByText('Medida')).toBeInTheDocument()
     expect(screen.getByText('Histórico')).toBeInTheDocument()
