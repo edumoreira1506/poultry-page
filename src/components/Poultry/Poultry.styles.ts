@@ -201,6 +201,7 @@ export const StyledPriceDetails = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  min-height: 35px;
 `
 
 export const StyledPriceButton = styled.div`
