@@ -8,6 +8,11 @@ export const StyledContainer = styled.main`
   display: flex;
   flex-direction: column;
   align-items: center;
+  padding-top: 60px;
+
+  & > ul {
+    top: 115px;
+  }
 `
 
 export const StyledHeader = styled.div`
@@ -15,8 +20,19 @@ export const StyledHeader = styled.div`
   width: 100%;
   justify-content: space-between;
   align-items: center;
-  max-width: 800px;
   margin: 0 auto;
+  position: fixed;
+  top: 50px;
+  background-color: ${Colors.White};
+  z-index: 10;
+  padding: 0 5px;
+  width: calc(100% - 10px);
+  box-shadow: 0px -3px 5px 5px rgba(0,0,0,0.74);
+
+  ${createMinWidthMediaQuery(`
+    width: calc(100% - 30px);
+    padding: 0 15px;
+  `)}
 `
 
 export const StyledHeaderText = styled.p`
