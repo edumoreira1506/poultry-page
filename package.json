@@ -7,7 +7,7 @@
     "@cig-platform/enums": "^0.0.6",
     "@cig-platform/factories": "^0.0.21",
     "@cig-platform/types": "^0.0.35",
-    "@cig-platform/ui": "^0.1.134",
+    "@cig-platform/ui": "^0.1.135",
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.4",
     "@testing-library/user-event": "^13.5.0",
