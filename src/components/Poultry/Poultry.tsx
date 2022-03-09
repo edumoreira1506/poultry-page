@@ -447,6 +447,17 @@ const Poultry: FC<PoultryProps> = ({
           </StyledInfoItem>
         )}
 
+        {poultry?.register && (
+          <StyledInfoItem>
+            <StyledInfoKey>
+              Nº Anilha Interna
+            </StyledInfoKey>
+            <StyledInfoValue>
+              {poultry.register}
+            </StyledInfoValue>
+          </StyledInfoItem>
+        )}
+
         <StyledInfoItem>
           <StyledInfoKey>
             Peso
