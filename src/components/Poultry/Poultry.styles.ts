@@ -24,7 +24,7 @@ export const StyledHeader = styled.div`
   position: fixed;
   top: 50px;
   background-color: ${Colors.White};
-  z-index: 10;
+  z-index: 8;
   padding: 0 5px;
   width: calc(100% - 10px);
   box-shadow: 0px -3px 5px 5px rgba(0,0,0,0.74);
