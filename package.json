@@ -33,7 +33,8 @@
     "test": "react-app-rewired test",
     "eject": "react-scripts eject",
     "lint": "eslint src",
-    "start": "start-storybook -p 6006 -s public",
+    "start": "serve -s build -l $PORT",
+    "start:storybook": "start-storybook -p 6006 -s public",
     "start:local": "react-app-rewired start",
     "build-storybook": "build-storybook -s public"
   },
