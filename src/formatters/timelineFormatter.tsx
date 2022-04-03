@@ -15,20 +15,24 @@ const icons: Record<string, ReactNode> = {
 }
 
 export default function timelineFormatter(registers: IPoultryRegister[] = [], poultry: Partial<IPoultry>) {
-  const birthDateRegister = {
-    key: 'BIRTH_DATE',
-    description: 'Primeiro registro do animal',
-    date: poultry?.birthDate,
-    icon: <BsFillEggFill />
+  const formattedRegisters = registers.reverse().map(register => ({
+    key: register.id,
+    description: register.description,
+    date: register.date,
+    icon: icons?.[register.type] ?? null
+  }))
+
+  if (!poultry?.birthDate) {
+    return formattedRegisters
   }
 
   return [
-    poultry?.birthDate ? birthDateRegister : undefined,
-    ...registers.reverse().map(register => ({
-      key: register.id,
-      description: register.description,
-      date: register.date,
-      icon: icons?.[register.type] ?? null
-    }))
-  ].filter(Boolean)
+    {
+      key: 'BIRTH_DATE',
+      description: 'Primeiro registro do animal',
+      date: poultry?.birthDate,
+      icon: <BsFillEggFill />
+    },
+    ...formattedRegisters
+  ]
 }
