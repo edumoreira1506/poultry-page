@@ -296,4 +296,21 @@ describe('Poultry', () => {
       poultryId: DEFAULT_PROPS.poultry.id
     })
   })
+
+  it('renders birth date register', () => {
+    render(<Poultry {...DEFAULT_PROPS} />)
+
+    expect(screen.getByText('Primeiro registro do animal')).toBeInTheDocument()
+  })
+
+  it('does not render birth date register', () => {
+    const poultry = {
+      ...DEFAULT_PROPS.poultry,
+      birthDate: undefined
+    }
+
+    render(<Poultry {...DEFAULT_PROPS} poultry={poultry} />)
+
+    expect(screen.queryByText('Primeiro registro do animal')).not.toBeInTheDocument()
+  })
 })
