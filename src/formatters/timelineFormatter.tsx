@@ -18,17 +18,17 @@ export default function timelineFormatter(registers: IPoultryRegister[] = [], po
   const birthDateRegister = {
     key: 'BIRTH_DATE',
     description: 'Primeiro registro do animal',
-    date: poultry?.birthDate ?? new Date(),
+    date: poultry?.birthDate,
     icon: <BsFillEggFill />
   }
 
   return [
-    birthDateRegister,
+    poultry?.birthDate ? birthDateRegister : undefined,
     ...registers.reverse().map(register => ({
       key: register.id,
       description: register.description,
       date: register.date,
       icon: icons?.[register.type] ?? null
     }))
-  ]
+  ].filter(Boolean)
 }
