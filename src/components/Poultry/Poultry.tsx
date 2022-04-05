@@ -299,7 +299,7 @@ const Poultry: FC<PoultryProps> = ({
             <Table
               columns={['Data', 'Nome', 'Dose']}
               rows={[{ items: [dateFormatter(String(selectedRegister?.date)), selectedRegister?.metadata?.name, `${selectedRegister?.metadata?.dose}ª`], expandedContent: String(selectedRegister?.description) }]}
-              hasExpandColumn
+              hasExpandColumn={Boolean(selectedRegister?.description)}
             />
           </StyledTableModal>
         )}
@@ -316,7 +316,7 @@ const Poultry: FC<PoultryProps> = ({
                 ],
                 expandedContent: String(selectedRegister?.description)
               }]}
-              hasExpandColumn
+              hasExpandColumn={Boolean(selectedRegister?.description)}
             />
           </StyledTableModal>
         )}
