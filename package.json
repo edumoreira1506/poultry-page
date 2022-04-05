@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "@cig-platform/content-search-client": "^0.0.17",
+    "@cig-platform/content-search-client": "^0.0.19",
     "@cig-platform/enums": "^0.0.6",
     "@cig-platform/factories": "^0.0.21",
     "@cig-platform/types": "^0.0.35",
