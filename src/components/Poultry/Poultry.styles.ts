@@ -274,7 +274,7 @@ export const StyledDetails = styled.div`
   width: 160px;
   display: flex;
   justify-content: space-between;
-  margin-top: 15px;
+  margin: 15px 0;
 `
 
 export const StyledDetail = styled.div`
