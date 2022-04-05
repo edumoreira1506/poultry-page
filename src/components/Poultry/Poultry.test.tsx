@@ -42,6 +42,22 @@ describe('Poultry', () => {
     expect(screen.getByText('Histórico')).toBeInTheDocument()
   })
 
+  it('renders favorites and deals info', () => {
+    const advertising = {
+      ...advertisingFactory(),
+      favorites: 10,
+      deals: 11,
+      questions: []
+    }
+
+    render(<Poultry {...DEFAULT_PROPS} advertising={advertising} />)
+
+    expect(screen.getByText(advertising.favorites)).toBeInTheDocument()
+    expect(screen.getByText('favoritos')).toBeInTheDocument()
+    expect(screen.getByText(advertising.deals)).toBeInTheDocument()
+    expect(screen.getByText('propostas')).toBeInTheDocument()
+  })
+
   it('renders last measurement and weight register', () => {
     const register = {
       type: RegisterTypeEnum.MeasurementAndWeighing,
@@ -156,6 +172,8 @@ describe('Poultry', () => {
   it('renders advertising questions', () => {
     const advertising = {
       ...advertisingFactory(),
+      favorites: 0,
+      deals: 0,
       questions: [
         {
           user: userFactory(),
@@ -195,6 +213,8 @@ describe('Poultry', () => {
     const onComment = jest.fn()
     const advertising = {
       ...advertisingFactory(),
+      favorites: 0,
+      deals: 0,
       questions: [
         {
           user: userFactory(),
@@ -227,6 +247,8 @@ describe('Poultry', () => {
     const onAnswer = jest.fn()
     const advertising = {
       ...advertisingFactory(),
+      favorites: 0,
+      deals: 0,
       questions: [
         {
           user: userFactory(),
@@ -270,6 +292,8 @@ describe('Poultry', () => {
     const advertising = {
       ...advertisingFactory(),
       questions: [],
+      favorites: 0,
+      deals: 0
     }
 
     render(<Poultry {...DEFAULT_PROPS} advertising={advertising} contacts={[contact]} />)
@@ -282,6 +306,8 @@ describe('Poultry', () => {
     const advertising = {
       ...advertisingFactory(),
       questions: [],
+      favorites: 0,
+      deals: 0
     }
 
     render(<Poultry {...DEFAULT_PROPS} advertising={advertising} onBuy={onBuy} />)

@@ -269,3 +269,14 @@ export const StyledCommentsContainer = styled.div`
 `
 
 export const StyledCommentsTitle = styled.p``
+
+export const StyledDetails = styled.div`
+  width: 160px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+`
+
+export const StyledDetail = styled.div`
+  width: calc(50% - 5px);
+`
