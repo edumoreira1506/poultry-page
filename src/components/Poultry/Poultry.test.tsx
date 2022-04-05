@@ -156,6 +156,8 @@ describe('Poultry', () => {
   it('renders advertising questions', () => {
     const advertising = {
       ...advertisingFactory(),
+      favorites: 0,
+      deals: 0,
       questions: [
         {
           user: userFactory(),
@@ -195,6 +197,8 @@ describe('Poultry', () => {
     const onComment = jest.fn()
     const advertising = {
       ...advertisingFactory(),
+      favorites: 0,
+      deals: 0,
       questions: [
         {
           user: userFactory(),
@@ -227,6 +231,8 @@ describe('Poultry', () => {
     const onAnswer = jest.fn()
     const advertising = {
       ...advertisingFactory(),
+      favorites: 0,
+      deals: 0,
       questions: [
         {
           user: userFactory(),
@@ -270,6 +276,8 @@ describe('Poultry', () => {
     const advertising = {
       ...advertisingFactory(),
       questions: [],
+      favorites: 0,
+      deals: 0
     }
 
     render(<Poultry {...DEFAULT_PROPS} advertising={advertising} contacts={[contact]} />)
@@ -282,6 +290,8 @@ describe('Poultry', () => {
     const advertising = {
       ...advertisingFactory(),
       questions: [],
+      favorites: 0,
+      deals: 0
     }
 
     render(<Poultry {...DEFAULT_PROPS} advertising={advertising} onBuy={onBuy} />)

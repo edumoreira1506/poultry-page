@@ -24,6 +24,8 @@ interface Question extends IAdvertisingQuestion {
 
 export interface Advertising extends IAdvertising {
   questions: Question[];
+  favorites: number;
+  deals: number;
 }
 
 interface Data {

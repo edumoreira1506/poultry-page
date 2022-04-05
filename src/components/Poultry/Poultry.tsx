@@ -1,11 +1,22 @@
 import { FC, useCallback, useEffect, useMemo, useState } from 'react'
 import ReactPlayer from 'react-player'
-import { ImageGallery, Timeline, Modal, Table, LinksBar, Button, CommentList } from '@cig-platform/ui'
+import {
+  ImageGallery,
+  Timeline,
+  Modal,
+  Table,
+  LinksBar,
+  Button,
+  CommentList,
+  InfoCounter,
+  Colors
+} from '@cig-platform/ui'
 import { IBreeder, IBreederContact, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
 import { BsFillEggFill, BsFillMegaphoneFill } from 'react-icons/bs'
-import { AiOutlineRollback, AiFillEdit } from 'react-icons/ai'
+import { AiOutlineRollback, AiFillEdit, AiFillHeart } from 'react-icons/ai'
 import { BiTransfer } from 'react-icons/bi'
 import { BsShareFill, BsFillGearFill } from 'react-icons/bs'
+import { GiReceiveMoney } from 'react-icons/gi'
 import copy from 'copy-to-clipboard'
 import { RegisterTypeEnum } from '@cig-platform/enums'
 
@@ -40,7 +51,9 @@ import {
   StyledPriceDetails,
   StyledPriceButton,
   StyledCommentsContainer,
-  StyledCommentsTitle
+  StyledCommentsTitle,
+  StyledDetails,
+  StyledDetail
 } from './Poultry.styles'
 import { MARKETPLACE_URL } from '../../constants/url'
 import { Advertising } from '../../hooks/useData'
@@ -95,6 +108,8 @@ const Poultry: FC<PoultryProps> = ({
 
   const vaccines = useMemo(() => registers?.filter(({ type }) => type === RegisterTypeEnum.Vaccination) ?? [], [registers])
   const measurementsAndWeighint = useMemo(() => registers?.filter(({ type }) => type === RegisterTypeEnum.MeasurementAndWeighing) ?? [], [registers])
+
+  const hasAdvertising = useMemo(() => Boolean(advertising), [advertising])
 
   const lastMeasurement = useMemo(() =>
     measurementsAndWeighint.find(item => Boolean(Number(item?.metadata?.measurement))),
@@ -336,6 +351,28 @@ const Poultry: FC<PoultryProps> = ({
         </StyledGalleryContainer>
       )}
 
+      {hasAdvertising && (
+        <StyledDetails>
+          <StyledDetail>
+            <InfoCounter
+              amount={advertising?.favorites ?? 0}
+              description="favoritos"
+              icon={<AiFillHeart />}
+              iconColor={Colors.DarkBlue}
+            />
+          </StyledDetail>
+
+          <StyledDetail>
+            <InfoCounter
+              amount={advertising?.deals ?? 0}
+              description="propostas"
+              icon={<GiReceiveMoney />}
+              iconColor={Colors.DarkBlue}
+            />
+          </StyledDetail>
+        </StyledDetails>
+      )}
+      
       {poultry?.description && (
         <>
           <StyledDescriptionTitle>
@@ -531,7 +568,7 @@ const Poultry: FC<PoultryProps> = ({
         </>
       )}
 
-      {Boolean(advertising) && (
+      {hasAdvertising && (
         <StyledCommentsContainer>
           <StyledCommentsTitle>Perguntas</StyledCommentsTitle>
           <CommentList

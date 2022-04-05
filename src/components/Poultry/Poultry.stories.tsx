@@ -120,6 +120,8 @@ Example.args = {
     finished: false,
     price: 1500,
     id: 'id',
+    favorites: 15,
+    deals: 5,
     externalId: 'externalId',
     questions: [
       {
