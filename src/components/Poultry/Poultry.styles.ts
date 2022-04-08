@@ -99,14 +99,18 @@ export const StyledInfoKey = styled.p`
   padding: 4px 0;
   display: inline-block;
   font-size: 15px;
-  margin: 0 0 10px;
+  margin: 0;
   width: 100%;
   text-align: center;
+  padding: 10px 0;
 `
 
 export const StyledInfoValue = styled.div`
   font-size: 15px;
   text-align: center;
+  background-color: ${Colors.LightGrey};
+  border-radius: ${DEFAULT_BORDER_RADIUS};
+  padding: 10px 0;
 `
 
 export const StyledVideoContainer = styled.div`
