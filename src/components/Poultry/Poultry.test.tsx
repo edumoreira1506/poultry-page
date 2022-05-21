@@ -177,6 +177,7 @@ describe('Poultry', () => {
       questions: [
         {
           user: userFactory(),
+          breeder: breederFactory(),
           answers: [{
             content: 'Resposta 1',
             createdAt: new Date(),
@@ -200,7 +201,7 @@ describe('Poultry', () => {
 
     advertising.questions.forEach(question => {
       expect(screen.getByText(question.content)).toBeInTheDocument()
-      expect(screen.getByText(question.user.name)).toBeInTheDocument()
+      expect(screen.getByText(`${question.breeder.name} - ${question.user.name}`)).toBeInTheDocument()
 
       question.answers.forEach(answer => {
         expect(screen.getByText(answer.content)).toBeInTheDocument()
