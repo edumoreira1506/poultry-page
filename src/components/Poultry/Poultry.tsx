@@ -238,7 +238,7 @@ const Poultry: FC<PoultryProps> = ({
   })).reverse(), [measurementsAndWeighint])
 
   const comments = useMemo(() => advertising?.questions.map(question => ({
-    name: question.user.name,
+    name: question.breeder ? `${question.breeder.name} - ${question.user.name}` : question.user.name,
     content: question.content,
     date: new Date(question.createdAt),
     image: 'https://www.nicepng.com/png/detail/128-1280406_view-user-icon-png-user-circle-icon-png.png',

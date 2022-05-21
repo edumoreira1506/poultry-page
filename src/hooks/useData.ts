@@ -20,6 +20,7 @@ interface AdvertisingQuestionAnswer extends IAdvertisingQuestionAnswer {
 interface Question extends IAdvertisingQuestion {
   answers: AdvertisingQuestionAnswer[];
   user: IUser;
+  breeder?: IBreeder;
 }
 
 export interface Advertising extends IAdvertising {
