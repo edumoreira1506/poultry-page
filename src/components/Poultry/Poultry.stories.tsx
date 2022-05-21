@@ -133,6 +133,25 @@ Example.args = {
           register: '',
           registerType: UserRegisterTypeEnum.Default
         },
+        breeder: {
+          name: 'Bacana',
+          id: '',
+          description: '',
+          address: {
+            zipcode: '',
+            city:'',
+            province: '',
+            latitude: 0,
+            longitude: 0,
+            street: '',
+            number: 0
+          },
+          active: true,
+          foundationDate: new Date(),
+          profileImageUrl: '',
+          code: '',
+          createdAt: new Date()
+        },
         answers: [
           {
             user: {
