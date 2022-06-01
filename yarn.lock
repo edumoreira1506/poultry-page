@@ -1201,12 +1201,12 @@
     "@cig-platform/types" "^0.0.33"
     faker "^5.5.3"
 
-"@cig-platform/factories@^0.0.21":
-  version "0.0.21"
-  resolved "https://registry.yarnpkg.com/@cig-platform/factories/-/factories-0.0.21.tgz#bd0e98ba2dd06e8ccecc3848c3d45699fe16b100"
-  integrity sha512-Ek0YblxycXqUmzRiuLGcb6ca3LSmPQ2QkmiaWmu6GL9MIN83N19WG4B4PfK9mUytsZgHgf4yeM0mIKlyl3c89g==
+"@cig-platform/factories@^0.0.22":
+  version "0.0.22"
+  resolved "https://registry.yarnpkg.com/@cig-platform/factories/-/factories-0.0.22.tgz#1b764e8a7b2fc9f0efbcfdb128a264f8866192ae"
+  integrity sha512-Yid5VYq/tUdj3dcM64twOt5ykCFocWatitBO6fR2D81mtBpwa/yNINe+Sks7lePQY39jvETdOquk9Iu2ta8UUg==
   dependencies:
-    "@cig-platform/types" "^0.0.34"
+    "@cig-platform/types" "^0.0.41"
 
 "@cig-platform/types@^0.0.33":
   version "0.0.33"
@@ -1214,13 +1214,6 @@
   integrity sha512-vcXeIWPaSP2Aza/EhKbygtUNx/OoK46Qqe2Bk3i8Aci1OvoeOa+NSEajhewY+E/maCyor9Vo4yKHb2bdogCWjw==
   dependencies:
     express "^4.17.1"
-
-"@cig-platform/types@^0.0.34":
-  version "0.0.34"
-  resolved "https://registry.yarnpkg.com/@cig-platform/types/-/types-0.0.34.tgz#bed7a96b57703db33bb454d4022c55df5617d90b"
-  integrity sha512-nVtG1M/VcNbNW0bPoKITgOMrLt5LZOKP/NOpduRadblFOwbmP0v+abfTbiZ7z74U1XKaCMKRHqA69pyUtpzXBQ==
-  dependencies:
-    express "^4.17.3"
 
 "@cig-platform/types@^0.0.35":
   version "0.0.35"
