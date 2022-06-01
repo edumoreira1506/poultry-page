@@ -53,7 +53,8 @@ import {
   StyledCommentsContainer,
   StyledCommentsTitle,
   StyledDetails,
-  StyledDetail
+  StyledDetail,
+  StyledDeathWarning
 } from './Poultry.styles'
 import { MARKETPLACE_URL } from '../../constants/url'
 import { Advertising } from '../../hooks/useData'
@@ -260,7 +261,7 @@ const Poultry: FC<PoultryProps> = ({
 
     return () => document.removeEventListener('scroll', handleScrollWindow)
   }, [handleScrollWindow])
-  
+
   return (
     <StyledContainer>
       <LinksBar items={items} />
@@ -332,6 +333,12 @@ const Poultry: FC<PoultryProps> = ({
         <StyledHeaderText>{poultry.name}</StyledHeaderText>
         <StyledHeaderText>{poultry.code}</StyledHeaderText>
       </StyledHeader>
+
+      {!poultry.isAlive && (
+        <StyledDeathWarning>
+          Ave falecida
+        </StyledDeathWarning>
+      )}
 
       {Boolean(images?.length) && (
         <StyledGalleryContainer>

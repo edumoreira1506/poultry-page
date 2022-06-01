@@ -284,3 +284,14 @@ export const StyledDetails = styled.div`
 export const StyledDetail = styled.div`
   width: calc(50% - 5px);
 `
+
+export const StyledDeathWarning = styled.p`
+  font-family: ${MAIN_FONT};
+  margin-top: 40px;
+  width: 100%;
+  text-align: center;
+  background: ${Colors.LightRed};
+  color: ${Colors.White};
+  border-radius: ${DEFAULT_BORDER_RADIUS};
+  padding: 10px 0px;
+`
