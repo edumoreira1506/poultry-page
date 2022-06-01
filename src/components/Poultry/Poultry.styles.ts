@@ -287,7 +287,6 @@ export const StyledDetail = styled.div`
 
 export const StyledDeathWarning = styled.p`
   font-family: ${MAIN_FONT};
-  margin-top: 40px;
   width: 100%;
   text-align: center;
   background: ${Colors.LightRed};
