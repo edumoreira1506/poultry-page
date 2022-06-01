@@ -4,7 +4,7 @@
   "private": true,
   "dependencies": {
     "@cig-platform/content-search-client": "^0.0.24",
-    "@cig-platform/enums": "^0.0.6",
+    "@cig-platform/enums": "^0.0.7",
     "@cig-platform/factories": "^0.0.22",
     "@cig-platform/types": "^0.0.41",
     "@cig-platform/ui": "^0.1.139",

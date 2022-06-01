@@ -16,7 +16,7 @@ import { BsFillEggFill, BsFillMegaphoneFill } from 'react-icons/bs'
 import { AiOutlineRollback, AiFillEdit, AiFillHeart } from 'react-icons/ai'
 import { BiTransfer } from 'react-icons/bi'
 import { BsShareFill, BsFillGearFill } from 'react-icons/bs'
-import { GiReceiveMoney } from 'react-icons/gi'
+import { GiReceiveMoney, GiHastyGrave } from 'react-icons/gi'
 import copy from 'copy-to-clipboard'
 import { RegisterTypeEnum } from '@cig-platform/enums'
 
@@ -53,7 +53,8 @@ import {
   StyledCommentsContainer,
   StyledCommentsTitle,
   StyledDetails,
-  StyledDetail
+  StyledDetail,
+  StyledDeathWarning
 } from './Poultry.styles'
 import { MARKETPLACE_URL } from '../../constants/url'
 import { Advertising } from '../../hooks/useData'
@@ -282,30 +283,21 @@ const Poultry: FC<PoultryProps> = ({
           </StyledBirthDate>
         )}
 
-        {selectedRegister?.type === RegisterTypeEnum.Advertising && (
+        {([
+          RegisterTypeEnum.Advertising,
+          RegisterTypeEnum.RemoveAdvertising,
+          RegisterTypeEnum.Transfer,
+          RegisterTypeEnum.Death
+        ] as string[]).includes(selectedRegister?.type ?? '') && (
           <StyledBirthDate>
             <StyledBirhDateText>
               {selectedRegister?.description} 
             </StyledBirhDateText>
-            <BsFillMegaphoneFill />
-          </StyledBirthDate>
-        )}
 
-        {selectedRegister?.type === RegisterTypeEnum.RemoveAdvertising && (
-          <StyledBirthDate>
-            <StyledBirhDateText>
-              {selectedRegister?.description} 
-            </StyledBirhDateText>
-            <AiOutlineRollback />
-          </StyledBirthDate>
-        )}
-
-        {selectedRegister?.type === RegisterTypeEnum.Transfer && (
-          <StyledBirthDate>
-            <StyledBirhDateText>
-              {selectedRegister?.description} 
-            </StyledBirhDateText>
-            <BiTransfer />
+            {selectedRegister?.type === RegisterTypeEnum.Advertising && <BsFillMegaphoneFill />}
+            {selectedRegister?.type === RegisterTypeEnum.RemoveAdvertising && <AiOutlineRollback />}
+            {selectedRegister?.type === RegisterTypeEnum.Transfer && <BiTransfer />}
+            {selectedRegister?.type === RegisterTypeEnum.Death && <GiHastyGrave />}
           </StyledBirthDate>
         )}
 
@@ -341,6 +333,12 @@ const Poultry: FC<PoultryProps> = ({
         <StyledHeaderText>{poultry.name}</StyledHeaderText>
         <StyledHeaderText>{poultry.code}</StyledHeaderText>
       </StyledHeader>
+
+      {!poultry.isAlive && (
+        <StyledDeathWarning>
+          Ave falecida
+        </StyledDeathWarning>
+      )}
 
       {Boolean(images?.length) && (
         <StyledGalleryContainer>
