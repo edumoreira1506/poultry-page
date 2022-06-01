@@ -29,7 +29,8 @@ Example.args = {
       breederId: '',
       id: '',
       type: 'WHATS_APP',
-      value: '(15) 99644-2031'
+      value: '(15) 99644-2031',
+      createdAt: new Date()
     }
   ],
   images: [
@@ -117,6 +118,8 @@ Example.args = {
     }
   ],
   advertising: {
+    favoritesAmount: 10,
+    metadata: {},
     finished: false,
     price: 1500,
     id: 'id',

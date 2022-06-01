@@ -288,7 +288,8 @@ describe('Poultry', () => {
       id: '',
       breederId: '',
       value: '(15) 99644-2031',
-      type: BreederContactTypeEnum.WHATS_APP
+      type: BreederContactTypeEnum.WHATS_APP,
+      createdAt: new Date()
     }
     const advertising = {
       ...advertisingFactory(),

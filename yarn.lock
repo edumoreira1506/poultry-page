@@ -1166,14 +1166,14 @@
   resolved "https://registry.yarnpkg.com/@bcoe/v8-coverage/-/v8-coverage-0.2.3.tgz#75a2e8b51cb758a7553d6804a5932d7aace75c39"
   integrity sha512-0hYQ8SB4Db5zvZB4axdMHGwEaQjkZzFjQiN9LVYvIFB2nSUHW9tYpxWriPrWDASIxiaXax83REcLxuSdnGPZtw==
 
-"@cig-platform/content-search-client@^0.0.20":
-  version "0.0.20"
-  resolved "https://registry.yarnpkg.com/@cig-platform/content-search-client/-/content-search-client-0.0.20.tgz#b16798c092da8d09cadccb447b4f5a98b7f5bc90"
-  integrity sha512-F2vgAT0AgDmZcsi1ZHkLLUmJAnUyc/wM8+UhhhY/z4mzrBjFla0PO3GWFmOcoAx63hkvsVRJ0Za4LqdVUoBrzw==
+"@cig-platform/content-search-client@^0.0.24":
+  version "0.0.24"
+  resolved "https://registry.yarnpkg.com/@cig-platform/content-search-client/-/content-search-client-0.0.24.tgz#3da720ccd452ec5b054279c8cd941e4e9f868c32"
+  integrity sha512-UGmNt8CFh6Yd05FPYqHoX6DHEasNMDV9FcJSirhEB9Xod/CnGUxBlcl0atx3H/7J123/FintucK8MRZiIy/4Ug==
   dependencies:
     "@babel/plugin-proposal-decorators" "^7.17.2"
     "@cig-platform/decorators" "^0.0.2"
-    "@cig-platform/types" "^0.0.35"
+    "@cig-platform/types" "^0.0.41"
     axios "^0.26.0"
 
 "@cig-platform/decorators@^0.0.2":
@@ -1201,12 +1201,12 @@
     "@cig-platform/types" "^0.0.33"
     faker "^5.5.3"
 
-"@cig-platform/factories@^0.0.21":
-  version "0.0.21"
-  resolved "https://registry.yarnpkg.com/@cig-platform/factories/-/factories-0.0.21.tgz#bd0e98ba2dd06e8ccecc3848c3d45699fe16b100"
-  integrity sha512-Ek0YblxycXqUmzRiuLGcb6ca3LSmPQ2QkmiaWmu6GL9MIN83N19WG4B4PfK9mUytsZgHgf4yeM0mIKlyl3c89g==
+"@cig-platform/factories@^0.0.22":
+  version "0.0.22"
+  resolved "https://registry.yarnpkg.com/@cig-platform/factories/-/factories-0.0.22.tgz#1b764e8a7b2fc9f0efbcfdb128a264f8866192ae"
+  integrity sha512-Yid5VYq/tUdj3dcM64twOt5ykCFocWatitBO6fR2D81mtBpwa/yNINe+Sks7lePQY39jvETdOquk9Iu2ta8UUg==
   dependencies:
-    "@cig-platform/types" "^0.0.34"
+    "@cig-platform/types" "^0.0.41"
 
 "@cig-platform/types@^0.0.33":
   version "0.0.33"
@@ -1215,17 +1215,10 @@
   dependencies:
     express "^4.17.1"
 
-"@cig-platform/types@^0.0.34":
-  version "0.0.34"
-  resolved "https://registry.yarnpkg.com/@cig-platform/types/-/types-0.0.34.tgz#bed7a96b57703db33bb454d4022c55df5617d90b"
-  integrity sha512-nVtG1M/VcNbNW0bPoKITgOMrLt5LZOKP/NOpduRadblFOwbmP0v+abfTbiZ7z74U1XKaCMKRHqA69pyUtpzXBQ==
-  dependencies:
-    express "^4.17.3"
-
-"@cig-platform/types@^0.0.35":
-  version "0.0.35"
-  resolved "https://registry.yarnpkg.com/@cig-platform/types/-/types-0.0.35.tgz#0b81f67cbd7e99251f097269eed868d8748fa68f"
-  integrity sha512-USWcf85/RL+nSMRbmLtfZhbKX4jJWev5igo0Z3EZPU7fNXZuqxl+PEBF/e/d41hEBGmnzXrHGJClcB3V+KRovg==
+"@cig-platform/types@^0.0.41":
+  version "0.0.41"
+  resolved "https://registry.yarnpkg.com/@cig-platform/types/-/types-0.0.41.tgz#36f18829b17adc914f6d840a5551a9c660d05b31"
+  integrity sha512-IVUOZQvuoSKa+zHHnQTn9kxvnLTEdwts4qhKP+Mu13wZ2xgEboWrfXs4ohTscMHOYj3xabahwT2VUox1Gv29bQ==
   dependencies:
     express "^4.17.3"
 

@@ -207,17 +207,17 @@ const Poultry: FC<PoultryProps> = ({
       children: <BsShareFill />,
       identifier: 'share-poultry'
     },
-    advertising && onEditAdvertising && {
+    advertising && onEditAdvertising && poultry.isAlive && {
       onClick: handleEditAdvertising,
       children: <AiFillEdit />,
       identifier: 'edit-advertising'
     },
-    onSeeConfig && {
+    onSeeConfig && poultry.isAlive && {
       onClick: onSeeConfig,
       children: <BsFillGearFill />,
       identifier: 'see-config'
     }
-  ].filter(Boolean)), [handleSharePoultry, advertising, onSeeConfig])
+  ].filter(Boolean)), [handleSharePoultry, advertising, onSeeConfig, poultry?.isAlive])
 
   const handleCloseRegisterModal = useCallback(() => {
     setSelectedRegister(undefined)
