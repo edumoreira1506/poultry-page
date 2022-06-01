@@ -260,7 +260,7 @@ const Poultry: FC<PoultryProps> = ({
 
     return () => document.removeEventListener('scroll', handleScrollWindow)
   }, [handleScrollWindow])
-  console.log({ selectedRegister })
+  
   return (
     <StyledContainer>
       <LinksBar items={items} />
