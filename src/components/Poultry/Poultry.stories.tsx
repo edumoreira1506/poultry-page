@@ -2,9 +2,9 @@ import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { breederFactory, poultryFactory } from '@cig-platform/factories'
+import { RegisterTypeEnum, UserRegisterTypeEnum } from '@cig-platform/enums'
 
 import Poultry from './Poultry'
-import { UserRegisterTypeEnum } from '@cig-platform/enums'
 
 export default {
   title: 'Poultry',
@@ -57,7 +57,15 @@ Example.args = {
   ],
   registers: [
     {
-      id: '714f3278-5bb1-4e3f-bd30-9acba448fb2d',
+      id: '714f3278-5bb1-4e3f-bd30-9acba448aa2f1',
+      poultryId: '20bc2d1c-548f-461c-872c-07d7746e11b4',
+      description: 'Comunicado de morte',
+      date: new Date('2021-10-26T02:19:31.991Z'),
+      type: RegisterTypeEnum.Death,
+      files: []
+    },
+    {
+      id: '714f3278-5bb1-4e3f-bd30-9acba448fb2d2',
       poultryId: '20bc2d1c-548f-461c-872c-07d7746e11b4',
       description: 'Atualizações de domingo',
       date: new Date('2021-10-26T02:19:31.991Z'),
@@ -69,7 +77,7 @@ Example.args = {
       }]
     },
     {
-      id: '714f3278-5bb1-4e3f-bd30-9acba448fb2c',
+      id: '714f3278-5bb1-4e3f-bd30-9acba448fb2c3',
       poultryId: '20bc2d1c-548f-461c-872c-07d7746e11b4',
       description: 'Atualizações de segunda-feira',
       date: new Date('2021-10-26T02:19:31.991Z'),
@@ -81,7 +89,7 @@ Example.args = {
       files: []
     },
     {
-      id: '714f3278-5bb1-4e3f-bd30-9acba448fb2a',
+      id: '714f3278-5bb1-4e3f-bd30-9acba448fb24a',
       poultryId: '20bc2d1c-548f-461c-872c-07d7746e11b4',
       description: 'Atualizações de segunda-feira',
       date: new Date('2021-10-26T02:19:31.991Z'),
@@ -93,7 +101,7 @@ Example.args = {
       files: []
     },
     {
-      id: '714f3278-5bb1-4e3f-bd30-9acba448fb2f',
+      id: '714f3278-5bb1-4e3f-bd30-9acba448fb2f5',
       poultryId: '20bc2d1c-548f-461c-872c-07d7746e11b4',
       description: 'Ave anúnciada no criatório XPTO',
       date: new Date('2021-10-26T02:19:31.991Z'),
@@ -101,7 +109,7 @@ Example.args = {
       files: []
     },
     {
-      id: '714f3278-5bb1-4e3f-bd30-9acba448fb2f',
+      id: '714f3278-5bb1-4e3f-bd30-9acba448fb62f',
       poultryId: '20bc2d1c-548f-461c-872c-07d7746e11b4',
       description: 'Anúncio removido',
       date: new Date('2021-10-26T02:19:31.991Z'),
@@ -109,13 +117,13 @@ Example.args = {
       files: []
     },
     {
-      id: '714f3278-5bb1-4e3f-bd30-9acba448fb2f',
+      id: '714f3278-5bb1-4e3f-bd30-9acba448fb72f',
       poultryId: '20bc2d1c-548f-461c-872c-07d7746e11b4',
       description: 'Ave transferida',
       date: new Date('2021-10-26T02:19:31.991Z'),
       type: 'TRANSFERÊNCIA',
       files: []
-    }
+    },
   ],
   advertising: {
     favoritesAmount: 10,
