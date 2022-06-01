@@ -207,7 +207,7 @@ const Poultry: FC<PoultryProps> = ({
       children: <BsShareFill />,
       identifier: 'share-poultry'
     },
-    advertising && onEditAdvertising && {
+    advertising && onEditAdvertising && poultry.isAlive && {
       onClick: handleEditAdvertising,
       children: <AiFillEdit />,
       identifier: 'edit-advertising'
