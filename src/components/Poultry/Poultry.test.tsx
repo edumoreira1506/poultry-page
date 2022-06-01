@@ -341,4 +341,21 @@ describe('Poultry', () => {
 
     expect(screen.queryByText('Primeiro registro do animal')).not.toBeInTheDocument()
   })
+
+  it('renders death warning message', () => {
+    const poultry = {
+      ...DEFAULT_PROPS.poultry,
+      isAlive: false
+    }
+
+    render(<Poultry {...DEFAULT_PROPS} poultry={poultry} />)
+
+    expect(screen.getByText('Ave falecida')).toBeInTheDocument()
+  })
+
+  it('does not render death warning message', () => {
+    render(<Poultry {...DEFAULT_PROPS} />)
+
+    expect(screen.queryByText('Ave falecida')).not.toBeInTheDocument()
+  })
 })
