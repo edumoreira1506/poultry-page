@@ -1229,6 +1229,13 @@
   dependencies:
     express "^4.17.3"
 
+"@cig-platform/types@^0.0.41":
+  version "0.0.41"
+  resolved "https://registry.yarnpkg.com/@cig-platform/types/-/types-0.0.41.tgz#36f18829b17adc914f6d840a5551a9c660d05b31"
+  integrity sha512-IVUOZQvuoSKa+zHHnQTn9kxvnLTEdwts4qhKP+Mu13wZ2xgEboWrfXs4ohTscMHOYj3xabahwT2VUox1Gv29bQ==
+  dependencies:
+    express "^4.17.3"
+
 "@cig-platform/ui@^0.1.139":
   version "0.1.139"
   resolved "https://registry.yarnpkg.com/@cig-platform/ui/-/ui-0.1.139.tgz#c9bc2a858553df65c8f9ededd31eca230fee59f7"
