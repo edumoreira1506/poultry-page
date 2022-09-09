@@ -17,7 +17,7 @@ type Callbacks = {
 
 (window as any).renderPoultryPage = (
   containerId: string,
-  { breederId, poultryId }: { breederId: string; poultryId: string; },
+  { breederId, poultryId, refetch = false }: { breederId: string; poultryId: string; refetch?: boolean },
   {
     onEditAdvertising,
     onSeeConfig,
@@ -39,6 +39,7 @@ type Callbacks = {
           onComment={onComment}
           onAnswer={onAnswer}
           onBuy={onBuy}
+          refetch={refetch}
         />
       </QueryClientProvider>,
       targetDocument,
