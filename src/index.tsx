@@ -1,11 +1,10 @@
+import { queryClient } from '@cig-platform/data-helper'
 import React from 'react'
 import ReactDOM from 'react-dom'
-import { QueryClient, QueryClientProvider } from 'react-query'
+import { QueryClientProvider } from 'react-query'
 import { PoultryProps } from './components/Poultry/Poultry'
 
 import PoultryContainer from './containers/PoultryContainer/PoultryContainer'
-
-const queryClient = new QueryClient()
 
 type Callbacks = {
   onEditAdvertising?: PoultryProps['onEditAdvertising'];
