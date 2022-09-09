@@ -2,7 +2,7 @@ import React from 'react'
 import { ComponentMeta, ComponentStory } from '@storybook/react'
 import { action } from '@storybook/addon-actions'
 import { breederFactory, poultryFactory } from '@cig-platform/factories'
-import { RegisterTypeEnum, UserRegisterTypeEnum } from '@cig-platform/enums'
+import { PoultryGenderEnum, RegisterTypeEnum, UserRegisterTypeEnum } from '@cig-platform/enums'
 
 import Poultry from './Poultry'
 
@@ -13,17 +13,26 @@ export default {
 
 const Template: ComponentStory<typeof Poultry> = (args) => <Poultry {...args} />
 
+const dad = poultryFactory({ gender: PoultryGenderEnum.Male })
+const mom = poultryFactory({ gender: PoultryGenderEnum.Female })
+const poultry = {
+  ...poultryFactory({
+    videos: {
+      measurement: 'https://www.youtube.com/watch?v=Hh9vXojYq9A',
+      presentation: 'https://www.youtube.com/watch?v=Hh9vXojYq9A'
+    }
+  }),
+  dadId: dad.id,
+  dad,
+  momId: mom.id,
+  mom,
+  code: 'ABCD-123'
+}
+
 export const Example = Template.bind({})
 Example.args = {
-  poultry: {
-    ...poultryFactory({
-      videos: {
-        measurement: 'https://www.youtube.com/watch?v=Hh9vXojYq9A',
-        presentation: 'https://www.youtube.com/watch?v=Hh9vXojYq9A'
-      }
-    }),
-    code: 'ABCD-123'
-  },
+  poultry,
+  poultries: [poultry, mom, dad],
   contacts: [
     {
       breederId: '',

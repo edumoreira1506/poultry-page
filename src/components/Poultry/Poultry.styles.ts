@@ -294,3 +294,7 @@ export const StyledDeathWarning = styled.p`
   border-radius: ${DEFAULT_BORDER_RADIUS};
   padding: 10px 0px;
 `
+
+export const StyledTree = styled.div`
+  width: 100%;
+`

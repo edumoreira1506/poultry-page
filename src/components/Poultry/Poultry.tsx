@@ -9,7 +9,8 @@ import {
   Button,
   CommentList,
   InfoCounter,
-  Colors
+  Colors,
+  Tree
 } from '@cig-platform/ui'
 import { IBreeder, IBreederContact, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
 import { BsFillEggFill, BsFillMegaphoneFill } from 'react-icons/bs'
@@ -54,7 +55,8 @@ import {
   StyledCommentsTitle,
   StyledDetails,
   StyledDetail,
-  StyledDeathWarning
+  StyledDeathWarning,
+  StyledTree
 } from './Poultry.styles'
 import { MARKETPLACE_URL } from '../../constants/url'
 import { Advertising } from '../../hooks/useData'
@@ -72,6 +74,8 @@ export interface PoultryProps {
   onSeeConfig?: () => void;
   onBuy?: ({ advertisingId, breederId, poultryId }: { breederId: string; poultryId: string; advertisingId: string; }) => void;
   breeder: IBreeder;
+  poultries?: IPoultry[]
+  onExpandTree?: (poultryId: string) => void;
 }
 
 const COLORS: Record<string, string> = {
@@ -97,7 +101,9 @@ const Poultry: FC<PoultryProps> = ({
   breeder,
   onAnswer,
   onComment,
-  onBuy
+  onBuy,
+  poultries = [],
+  onExpandTree
 }: PoultryProps) => {
   const [isPriceFixed, setIsPriceFixed] = useState(true)
 
@@ -538,6 +544,16 @@ const Poultry: FC<PoultryProps> = ({
           <StyledTimelineTitle>Histórico</StyledTimelineTitle>
           <Timeline items={formattedTimelineItems} onExpandItem={handleExpandTimelineItem} />
         </StyledTimeline>
+      )}
+
+      {Boolean(poultries.length) && (
+        <StyledTree>
+          <Tree
+            poultries={poultries as any}
+            rootId={poultry?.id ?? ''}
+            onExpand={onExpandTree}
+          />
+        </StyledTree>
       )}
 
       {Boolean(vaccines.length) && (
