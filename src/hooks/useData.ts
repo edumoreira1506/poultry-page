@@ -9,7 +9,7 @@ import {
   IUser,
   IBreeder
 } from '@cig-platform/types'
-import { useQuery } from 'react-query'
+import { useData as useDataFromDataHelper } from '@cig-platform/data-helper'
 
 import ContentSearchClient from '../clients/ContentSearchClient'
 
@@ -43,11 +43,10 @@ interface Data {
 }
 
 export default function useData(breederId: string, poultryId: string) {
-  return useQuery<Data>(
-    ['getPoultryData', breederId, poultryId],
+  return useDataFromDataHelper<Data>(
+    'getPoultryData',
     () => ContentSearchClient.getPoultry(breederId, poultryId),
-    {
-      enabled: Boolean(breederId && poultryId)
-    }
+    [breederId, poultryId],
+    {}
   )
 }
