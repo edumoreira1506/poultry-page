@@ -14,6 +14,7 @@ export interface PoultryContainerProps {
   onAnswer?: PoultryProps['onAnswer'];
   onComment?: PoultryProps['onComment'];
   onBuy?: PoultryProps['onBuy'];
+  refetch: boolean;
 }
 
 const PoultryContainer: FC<PoultryContainerProps> = ({
@@ -23,9 +24,10 @@ const PoultryContainer: FC<PoultryContainerProps> = ({
   onSeeConfig,
   onComment,
   onAnswer,
-  onBuy
+  onBuy,
+  refetch
 }: PoultryContainerProps) => {
-  const { data, isLoading } = useData(breederId, poultryId)
+  const { data, isLoading, refetch: refetchPoultryData } = useData(breederId, poultryId)
 
   const [poultries, setPoultries] = useState<IPoultry[]>([])
 
@@ -61,6 +63,12 @@ const PoultryContainer: FC<PoultryContainerProps> = ({
       console.log(error)
     } 
   }, [breederId, poultryId])
+
+  useEffect(() => {
+    if (refetch && refetchPoultryData) {
+      refetchPoultryData()
+    }
+  }, [refetch, refetchPoultryData])
 
   useEffect(() => {
     if (isLoading || !data?.poultry) return
