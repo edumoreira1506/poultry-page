@@ -14,4 +14,9 @@ module.exports = {
 
     return config
   },
+  jest: function(config) {
+    config.moduleNameMapper['react-family-tree'] = '<rootDir>/src/transform.js'
+
+    return config;
+  },
 }
