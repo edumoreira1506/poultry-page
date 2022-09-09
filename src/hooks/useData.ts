@@ -45,6 +45,9 @@ interface Data {
 export default function useData(breederId: string, poultryId: string) {
   return useQuery<Data>(
     ['getPoultryData', breederId, poultryId],
-    () => ContentSearchClient.getPoultry(breederId, poultryId)
+    () => ContentSearchClient.getPoultry(breederId, poultryId),
+    {
+      enabled: Boolean(breederId && poultryId)
+    }
   )
 }
