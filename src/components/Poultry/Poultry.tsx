@@ -10,7 +10,8 @@ import {
   CommentList,
   InfoCounter,
   Colors,
-  Tree
+  Tree,
+  SocialMediaShareModal
 } from '@cig-platform/ui'
 import { IBreeder, IBreederContact, IPoultry, IPoultryImage, IPoultryRegister } from '@cig-platform/types'
 import { BsFillEggFill, BsFillMegaphoneFill } from 'react-icons/bs'
@@ -18,7 +19,6 @@ import { AiOutlineRollback, AiFillEdit, AiFillHeart } from 'react-icons/ai'
 import { BiTransfer } from 'react-icons/bi'
 import { BsShareFill, BsFillGearFill } from 'react-icons/bs'
 import { GiReceiveMoney, GiHastyGrave } from 'react-icons/gi'
-import copy from 'copy-to-clipboard'
 import { RegisterTypeEnum } from '@cig-platform/enums'
 
 import 'react-image-gallery/styles/css/image-gallery.css'
@@ -106,8 +106,10 @@ const Poultry: FC<PoultryProps> = ({
   onExpandTree
 }: PoultryProps) => {
   const [isPriceFixed, setIsPriceFixed] = useState(true)
-
+  const [isSocialMediaShareModalOpen, setIsSocialMediaShareModalOpen] = useState(false)
   const [selectedRegister, setSelectedRegister] = useState<Partial<IPoultryRegister>>()
+
+  const url = `${MARKETPLACE_URL}breeders/${breederId}/poultries/${poultry?.id}`
 
   const formattedImagesOfGallery = useMemo(() => images?.map(i => imageFormatter(i.imageUrl) ?? []), [images])
 
@@ -172,8 +174,6 @@ const Poultry: FC<PoultryProps> = ({
   }, [registers])
 
   const handleSharePoultry = useCallback(async () => {
-    const url = `${MARKETPLACE_URL}breeders/${breederId}/poultries/${poultry?.id}`
-
     if (navigator.share) {
       const shareDetails = { url, title: poultry.name, text: url }
       
@@ -183,11 +183,13 @@ const Poultry: FC<PoultryProps> = ({
         console.error(error)
       }
     } else {
-      copy(url)
-
-      alert('Link copiado com sucesso!')
+      setIsSocialMediaShareModalOpen(true)
     }
-  }, [breederId, poultry])
+  }, [breederId, poultry, url])
+
+  const handleCloseSocialMediaShareModal = useCallback(() => {
+    setIsSocialMediaShareModalOpen(false)
+  }, [])
 
   const handleBuy = useCallback(() => {
     const advertisingId = advertising?.id ?? ''
@@ -270,6 +272,14 @@ const Poultry: FC<PoultryProps> = ({
 
   return (
     <StyledContainer>
+      <SocialMediaShareModal
+        isOpen={isSocialMediaShareModalOpen}
+        onClose={handleCloseSocialMediaShareModal}
+        url={url}
+        description={url}
+        title={poultry?.name}
+      />
+
       <LinksBar items={items} />
       
       <Modal isOpen={Boolean(selectedRegister)} onClose={handleCloseRegisterModal}>
