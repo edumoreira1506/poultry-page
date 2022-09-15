@@ -1205,6 +1205,14 @@
   dependencies:
     "@cig-platform/types" "^0.0.41"
 
+"@cig-platform/hooks@^0.0.6":
+  version "0.0.6"
+  resolved "https://registry.yarnpkg.com/@cig-platform/hooks/-/hooks-0.0.6.tgz#9c4ff33f558762d89fc0913dc069e18da4e94640"
+  integrity sha512-n+aXd1UBliYsG6UGCJ72LdWMAY/96j1Fe37bPHLRlWebJ4W2dVS7cmsw415VsXcOOO7NBAgNf/L1mNEpCwHfSg==
+  dependencies:
+    react "^17.0.2"
+    react-dom "^17.0.2"
+
 "@cig-platform/types@^0.0.41":
   version "0.0.41"
   resolved "https://registry.yarnpkg.com/@cig-platform/types/-/types-0.0.41.tgz#36f18829b17adc914f6d840a5551a9c660d05b31"
@@ -1219,13 +1227,14 @@
   dependencies:
     express "^4.17.3"
 
-"@cig-platform/ui@^0.2.9":
-  version "0.2.9"
-  resolved "https://registry.yarnpkg.com/@cig-platform/ui/-/ui-0.2.9.tgz#33de0a07214c489f6d6d581815469c6c1dce6b5a"
-  integrity sha512-LPiJr+PFiUlI4789nbjoqBBvUKrBbQMBCFdkPH4d2eSodJKsu44vmgY/ftUvYVeqynp1MfxYZSukjNsm/bL+Lg==
+"@cig-platform/ui@^0.2.16":
+  version "0.2.16"
+  resolved "https://registry.yarnpkg.com/@cig-platform/ui/-/ui-0.2.16.tgz#6c25f4fdfc7c4ce803fe12bd61a37bf079ec7aa5"
+  integrity sha512-NME0lv7Q5B22f2IIBOiUhdKBXJhDR19NpRbO0kQdVfWQoFD0AOZTQto/TjsVcL33WVlpOMSgmcIR840pJZ9cug==
   dependencies:
     "@cig-platform/enums" "^0.0.5"
     "@cig-platform/factories" "^0.0.22"
+    "@cig-platform/hooks" "^0.0.6"
     "@cig-platform/types" "^0.0.43"
     "@testing-library/jest-dom" "^5.16.2"
     "@testing-library/react" "^12.1.3"
